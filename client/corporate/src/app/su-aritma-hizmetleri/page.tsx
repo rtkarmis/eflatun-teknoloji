@@ -1,8 +1,8 @@
 import { generatePageMetadata } from "@/lib/seo";
 import ServiceContent from "./ServiceContent";
-import SchemaServiceGroup from "@/components/seo/service/SchemaServiceGroup";
 import { buildServicesBreadcrumb } from "@/lib/breadcrumbs";
-import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
+import dynamic from "next/dynamic";
+import ClientSchemaServiceGroup from "../../components/seo/service/ClientSchemaServiceGroup";
 
 export const metadata = generatePageMetadata({
   title: "Su Arıtma Hizmetleri",
@@ -10,11 +10,16 @@ export const metadata = generatePageMetadata({
     "Eflatun Teknoloji olarak Bolu ve çevresinde su arıtma cihazı satışı, montaj ve bakım hizmetleri sunuyoruz.",
   slug: "su-aritma-hizmetleri",
 });
+// SchemaServiceGroup dinamik importu artık Client Component'te
+const SchemaBreadcrumb = dynamic(
+  () => import("@/components/seo/SchemaBreadcrumb"),
+  { ssr: true }
+);
 
 export default function ServicesPage() {
   return (
     <>
-      <SchemaServiceGroup />
+      <ClientSchemaServiceGroup />
       <SchemaBreadcrumb items={buildServicesBreadcrumb()} />
       <ServiceContent />
     </>

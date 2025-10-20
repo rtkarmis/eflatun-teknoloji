@@ -35,7 +35,10 @@ const InfoCard: React.FC<InfoCardProps> = ({
           height={192}
           className="w-full object-cover rounded-xl mb-4"
           loading={loading}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+          quality={70}
         />
+
         <h2
           className="text-xl font-semibold mb-2 text-center"
           style={{ color: titleColor || COLORS.secondary }}
