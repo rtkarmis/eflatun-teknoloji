@@ -5,8 +5,6 @@ import InfoCard from "@/components/ui/InfoCard";
 import PageTitle from "@/components/ui/PageTitle";
 import { buildProductCategoryBreadcrumb } from "@/lib/breadcrumbs";
 import { Product, ProductCategory } from "@/types/product";
-import { motion } from "framer-motion";
-import React from "react";
 
 export default function ProductCategoryContent({
   category,
@@ -19,35 +17,32 @@ export default function ProductCategoryContent({
 }) {
   return (
     <div>
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <section>
         <div>
           <Breadcrumb items={buildProductCategoryBreadcrumb(category)} />
           <PageTitle text={category.name} />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
-              <React.Fragment key={product.slug}>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, i) => (
+              <li
+                key={product.slug}
+                className="p-6 bg-gray-50 rounded-2xl shadow-sm md:hover:shadow-lg md:transition-all duration-300"
+              >
                 <SchemaProductSingle product={product} />
-                <article className="bg-gray-50 rounded-2xl shadow hover:shadow-lg transition-all p-6">
-                  <InfoCard
-                    imageUrl={
-                      product.colorVariants.find((v) => v.isCover)
-                        ?.imageList[0] || ""
-                    }
-                    title={product.name}
-                    description={product.shortDesc}
-                    ctaUrl={`/su-aritma-urunleri/${params.kategori}/${product.slug}`}
-                  />
-                </article>
-              </React.Fragment>
+                <InfoCard
+                  imageUrl={
+                    product.colorVariants.find((v) => v.isCover)
+                      ?.imageList[0] || ""
+                  }
+                  title={product.name}
+                  description={product.shortDesc}
+                  ctaUrl={`/su-aritma-urunleri/${params.kategori}/${product.slug}`}
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }
