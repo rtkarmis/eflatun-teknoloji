@@ -11,6 +11,7 @@ interface InfoCardProps {
   ctaUrl: string;
   ctaColor?: string;
   ctaText?: string;
+  loading?: "eager" | "lazy";
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -22,6 +23,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
   ctaColor,
   imageAlt,
   ctaText,
+  loading = "lazy",
 }) => {
   return (
     <Link href={ctaUrl}>
@@ -32,7 +34,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
           width={400}
           height={192}
           className="w-full object-cover rounded-xl mb-4"
-          loading="lazy"
+          loading={loading}
         />
         <h2
           className="text-xl font-semibold mb-2 text-center"
