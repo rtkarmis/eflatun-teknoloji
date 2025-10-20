@@ -5,15 +5,10 @@ import PageTitle from "@/components/ui/PageTitle";
 import { buildPolicyBreadcrumb } from "@/lib/breadcrumbs";
 import { COLORS } from "@/lib/constants";
 import { siteConfig } from "@/lib/seo";
-import { motion } from "framer-motion";
 
 export default function KvkkContent() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div>
       <Breadcrumb items={buildPolicyBreadcrumb("KVKK Aydınlatma Metni")} />
       <PageTitle text="KVKK Aydınlatma Metni" />
 
@@ -136,6 +131,6 @@ export default function KvkkContent() {
           teknik ve idari önlemler alınmaktadır.
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }

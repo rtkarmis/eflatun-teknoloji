@@ -4,15 +4,10 @@ import PageTitle from "@/components/ui/PageTitle";
 import { buildPolicyBreadcrumb } from "@/lib/breadcrumbs";
 import { COLORS } from "@/lib/constants";
 import { siteConfig } from "@/lib/seo";
-import { motion } from "framer-motion";
 
 export default function CookiePolicyContent() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div>
       <Breadcrumb items={buildPolicyBreadcrumb("Çerez Politikası")} />
       <PageTitle text="Çerez Politikası" />
 
@@ -114,6 +109,6 @@ export default function CookiePolicyContent() {
       <p className="text-sm text-gray-600 mt-8">
         © {new Date().getFullYear()} Eflatun Teknoloji - Tüm hakları saklıdır.
       </p>
-    </motion.div>
+    </div>
   );
 }

@@ -4,15 +4,10 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import { buildPolicyBreadcrumb } from "@/lib/breadcrumbs";
 import { COLORS } from "@/lib/constants";
 import { siteConfig } from "@/lib/seo";
-import { motion } from "framer-motion";
 
 export default function PrivacyPolicyContent() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div>
       <Breadcrumb items={buildPolicyBreadcrumb("Gizlilik Politikası")} />
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
         Gizlilik Politikası
@@ -177,6 +172,6 @@ export default function PrivacyPolicyContent() {
           hareket etmektedir.
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
