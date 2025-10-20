@@ -1,4 +1,5 @@
 import CallToAction from "@/components/sections/CallToAction";
+import ClientHomeContent from "@/components/sections/ClientHomeContent";
 import Hero from "@/components/sections/Hero";
 import ProductsPreview from "@/components/sections/ProductsPreview";
 import Reviews from "@/components/sections/Reviews";
@@ -17,12 +18,7 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white text-gray-800">
       <Hero />
-      <Services />
-      <ProductsPreview />
-      <WhyUs />
-      <Reviews />
-      <ServiceAreas />
-      <CallToAction />
+      <ClientHomeContent />
     </div>
   );
 }
