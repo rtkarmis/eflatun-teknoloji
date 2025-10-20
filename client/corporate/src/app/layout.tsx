@@ -9,7 +9,10 @@ import { defaultMetadata } from "@/lib/seo";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // ✅ fontDisplay burada
+});
 
 export const metadata = defaultMetadata;
 
@@ -19,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr">
+    <html lang="tr" className={inter.className}>
       <head>
         <link rel="icon" href="/icons/icon.webp" type="image/webp" />
       </head>

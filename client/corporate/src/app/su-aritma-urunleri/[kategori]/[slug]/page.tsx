@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: { kategori: string; slug: string };
   searchParams?: { color?: string | string[] };
 }) {
-  const { kategori, slug } = await params;
+  const { slug } = await params;
   const query = await searchParams;
 
   const product = products.find((p) => p.slug === slug);

@@ -9,7 +9,6 @@ export function middleware(request: NextRequest) {
   // sadece ürün detay rotalarını kontrol et
   if (pathname.startsWith("/su-aritma-urunleri/")) {
     const parts = pathname.split("/").filter(Boolean);
-    const kategori = parts[1];
     const slug = parts[2];
     const colorParam = searchParams.get("color");
 

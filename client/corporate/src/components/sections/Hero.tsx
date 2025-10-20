@@ -1,23 +1,18 @@
-"use client";
-
 import { COLORS } from "@/lib/constants";
 import { siteConfig } from "@/lib/seo";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <motion.section
+    <section
       className="relative flex flex-col items-center justify-center text-center py-20 md:py-28 px-4"
       style={{
         background: `linear-gradient(to right, ${COLORS.primary}, ${COLORS.secondary})`,
+        willChange: "opacity, transform",
       }}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
     >
       {/* ✅ Ana başlık (LCP elemanı) */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight max-w-3xl mx-auto">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 antialiased">
         Bolu Su Arıtma Cihazı Satışı, Montaj ve Servis Hizmetleri
       </h1>
 
@@ -51,6 +46,6 @@ export default function HeroSection() {
         Bolu su arıtma cihazı satışı, montajı ve bakım hizmetleri. Eflatun
         Teknoloji güvencesiyle.
       </span>
-    </motion.section>
+    </section>
   );
 }
