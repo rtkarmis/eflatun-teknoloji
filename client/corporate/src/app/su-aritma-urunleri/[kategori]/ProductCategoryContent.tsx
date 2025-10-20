@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import SchemaProductSingle from "@/components/seo/product/SchemaProductSingle";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import InfoCard from "@/components/ui/InfoCard";
