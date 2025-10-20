@@ -57,7 +57,7 @@ export default function MobileHeader() {
     setOpenMenu((prev) => (prev === label ? null : label));
 
   return (
-    <div className="flex items-center justify-between w-full h-20 relative">
+    <div className="flex items-center justify-between w-full h-16 relative">
       {/* 🔹 Logo */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <Logo />
@@ -82,8 +82,8 @@ export default function MobileHeader() {
             transition={{ type: "spring", stiffness: 280, damping: 32 }}
             className="fixed right-0 w-full max-w-sm bg-white z-40 shadow-2xl flex flex-col"
             style={{
-              height: "calc(100vh - (var(--spacing) * 20))",
-              top: "calc((var(--spacing) * 20))",
+              height: "calc(100vh - (var(--spacing) * 16))",
+              top: "calc((var(--spacing) * 16))",
             }}
           >
             {/* Menü Listesi */}

@@ -5,7 +5,6 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import { buildContactBreadcrumb } from "@/lib/breadcrumbs";
 import { COLORS } from "@/lib/constants";
 import { siteConfig } from "@/lib/seo";
-import { motion } from "framer-motion";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -42,11 +41,7 @@ export default function ContactContent() {
     },
   ];
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div>
       <Breadcrumb items={buildContactBreadcrumb()} />
 
       {/* 🟦 Hero Section */}
@@ -71,19 +66,13 @@ export default function ContactContent() {
 
       {/* 🟩 Bilgi Kartları (Skeleton destekli) */}
       {showCards ? (
-        <motion.section
+        <section
           key="contact-cards"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, staggerChildren: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {contactInfo.map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
               className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition flex flex-col items-center text-center border border-gray-100"
             >
               <div className="p-4 bg-blue-50 rounded-full mb-4">
@@ -104,9 +93,9 @@ export default function ContactContent() {
                   {item.text}
                 </p>
               )}
-            </motion.div>
+            </div>
           ))}
-        </motion.section>
+        </section>
       ) : (
         <ContactSkeleton /> // ✅ sadece bu kısım skeleton olarak gelir
       )}
@@ -125,11 +114,8 @@ export default function ContactContent() {
       </section>
 
       {/* 🟨 CTA */}
-      <motion.section
+      <section
         className="text-center py-12 text-white rounded-3xl shadow-lg"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
         style={{
           background: `linear-gradient(to right, ${COLORS.primary}, ${COLORS.secondary})`,
         }}
@@ -147,7 +133,7 @@ export default function ContactContent() {
         >
           Şimdi Ara
         </a>
-      </motion.section>
-    </motion.div>
+      </section>
+    </div>
   );
 }

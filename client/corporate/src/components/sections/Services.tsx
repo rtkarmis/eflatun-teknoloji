@@ -24,7 +24,7 @@ export default function Services() {
 
         {/* 🔹 Mobil görünüm */}
         <div className="block sm:hidden space-y-6">
-          {services.map((s, i) => (
+          {services.map((s) => (
             <div
               key={s.slug}
               className="bg-[#F9FAFB] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-gray-100"
@@ -65,7 +65,7 @@ export default function Services() {
 
         {/* 🔹 Masaüstü görünüm */}
         <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-8">
-          {services.map((s, i) => (
+          {services.map((s) => (
             <div
               key={s.slug}
               className="bg-[#F9FAFB] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition border border-gray-100 flex flex-col text-center"
