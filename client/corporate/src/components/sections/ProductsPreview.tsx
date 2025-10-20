@@ -39,7 +39,7 @@ export default function ProductsPreview() {
               className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-2 scroll-smooth"
               style={{ WebkitOverflowScrolling: "touch" }}
             >
-              {productCategories.map((cat, i) => (
+              {productCategories.map((cat) => (
                 <article
                   key={cat.slug}
                   className="snap-center flex-shrink-0 w-[85%] sm:w-[45%] md:w-[32%] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 mb-3"
@@ -80,7 +80,7 @@ export default function ProductsPreview() {
 
             {/* 🔹 Masaüstü için ok butonları */}
             <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {productCategories.map((cat, i) => (
+              {productCategories.map((cat) => (
                 <article
                   key={cat.slug}
                   className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 bg-white"

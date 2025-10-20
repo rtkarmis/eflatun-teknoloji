@@ -48,7 +48,7 @@ export default function AboutContent() {
           title: "Kalite Politikamız",
           text: "Her müşterimize aynı kalite standardında hizmet sunmak için sürekli eğitim, teknik güncellemeler ve orijinal yedek parça garantisiyle çalışıyoruz. Yalnızca test edilmiş markalarla iş birliği yapıyoruz.",
         },
-      ].map((item, i) => (
+      ].map((item) => (
         <section key={item.title} className="mt-10">
           <h2
             className="text-2xl font-semibold mb-3"

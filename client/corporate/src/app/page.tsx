@@ -1,11 +1,5 @@
-import CallToAction from "@/components/sections/CallToAction";
 import ClientHomeContent from "@/components/sections/ClientHomeContent";
 import Hero from "@/components/sections/Hero";
-import ProductsPreview from "@/components/sections/ProductsPreview";
-import Reviews from "@/components/sections/Reviews";
-import ServiceAreas from "@/components/sections/ServiceAreas";
-import Services from "@/components/sections/Services";
-import WhyUs from "@/components/sections/WhyUs";
 import { generatePageMetadata } from "@/lib/seo";
 export const generateMetadata = async () =>
   generatePageMetadata({

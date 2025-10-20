@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { serviceAreas } from "@/data/service-areas";
 import SchemaServiceAreaSingle from "@/components/seo/service-area/SchemaServiceAreaSingle";
 import Breadcrumb from "@/components/ui/Breadcrumb";
@@ -12,11 +11,7 @@ import PageTitle from "@/components/ui/PageTitle";
 export default function ServiceAreaContent() {
   return (
     <div>
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <section>
         <div>
           <Breadcrumb items={buildServiceAreasBreadcrumb()} />
           <PageTitle text="Hizmet Bölgelerimiz" />
@@ -35,12 +30,13 @@ export default function ServiceAreaContent() {
                   description={serviceArea.shortDesc}
                   ctaUrl={`/hizmet-bolgeleri/${serviceArea.slug}`}
                   ctaText="Detaylı Bilgi →"
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               </article>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }
