@@ -24,7 +24,27 @@ export default function RootLayout({
   return (
     <html lang="tr" className={inter.className}>
       <head>
-        <link rel="icon" href="/icons/icon.webp" type="image/webp" />
+        <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+        <link rel="preload" as="style" href="/_next/static/css/app.css" />
+        <link
+          rel="preconnect"
+          href="https://maps.googleapis.com"
+          crossOrigin=""
+        />
+        <link
+          rel="preconnect"
+          href="https://lh3.googleusercontent.com"
+          crossOrigin=""
+        />
+        <link rel="dns-prefetch" href="https://maps.gstatic.com" />
+
+        <noscript
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html:
+              '<link rel="stylesheet" href="/_next/static/css/app.css" />',
+          }}
+        />
       </head>
       <body
         className={`${inter.className} bg-[#F0F5FA] text-gray-900`}

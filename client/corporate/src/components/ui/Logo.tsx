@@ -35,6 +35,8 @@ export default function Logo({
         width={width}
         height={height}
         priority={priority}
+        loading="eager"
+        fetchPriority="high"
         decoding="async"
         className={`object-contain w-auto h-auto max-h-[${height}px]`}
         sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, (max-width: 1024px) 180px, 200px"

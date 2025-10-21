@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
-import SchemaProductSingle from "@/components/seo/product/SchemaProductSingle";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import InfoCard from "@/components/ui/InfoCard";
 import PageTitle from "@/components/ui/PageTitle";
 import { buildProductCategoryBreadcrumb } from "@/lib/breadcrumbs";
 import { Product, ProductCategory } from "@/types/product";
-
+import dynamic from "next/dynamic";
+const SchemaProductSingle = dynamic(
+  () => import("@/components/seo/product/SchemaProductSingle"),
+  { ssr: false }
+);
 export default function ProductCategoryContent({
   category,
   products,
@@ -38,6 +41,7 @@ export default function ProductCategoryContent({
                   description={product.shortDesc}
                   ctaUrl={`/su-aritma-urunleri/${params.kategori}/${product.slug}`}
                   loading={i === 0 ? "eager" : "lazy"}
+                  priority={i === 0}
                 />
               </li>
             ))}

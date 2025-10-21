@@ -14,12 +14,12 @@ export default function KvkkContent() {
 
       <div className="prose prose-gray max-w-none text-gray-800 leading-relaxed">
         <p>
-          <strong>Eflatun Teknoloji</strong> (“Şirket”) olarak kişisel
-          verilerinizin korunmasına büyük önem veriyoruz. 6698 sayılı{" "}
-          <strong>Kişisel Verilerin Korunması Kanunu</strong> (“KVKK”)
-          kapsamında kişisel verileriniz, veri sorumlusu sıfatıyla{" "}
-          <strong>Ramazan Karmış – Eflatun Teknoloji</strong> tarafından aşağıda
-          açıklanan çerçevede işlenmektedir.
+          <strong>Eflatun Teknoloji Su Arıtma Sistemleri</strong> (“Şirket”)
+          olarak kişisel verilerinizin gizliliğini ve güvenliğini en üst düzeyde
+          korumayı ilke edindik. 6698 sayılı{" "}
+          <strong>Kişisel Verilerin Korunması Kanunu (KVKK)</strong> uyarınca,
+          kişisel verileriniz aşağıda belirtilen esaslar çerçevesinde
+          işlenmektedir.
         </p>
 
         <h2
@@ -29,7 +29,7 @@ export default function KvkkContent() {
           1. Veri Sorumlusu
         </h2>
         <p>
-          <strong>Ramazan Karmış – Eflatun Teknoloji (Şahıs Şirketi)</strong>
+          <strong>Eflatun Teknoloji Su Arıtma Sistemleri</strong>
           <br />
           <strong>Adres:</strong> {siteConfig.address}
           <br />
@@ -38,7 +38,11 @@ export default function KvkkContent() {
           <strong>Telefon:</strong>{" "}
           {siteConfig.phoneDisplay || siteConfig.phone}
           <br />
-          <strong>Vergi No:</strong> {siteConfig.vkn} – Bolu Vergi Dairesi
+          <strong>Vergi Dairesi:</strong> Bolu Vergi Dairesi
+        </p>
+        <p>
+          Şirketimiz, faaliyetlerini ilgili tüm yasal düzenlemelere ve KVKK
+          hükümlerine uygun biçimde yürütmektedir.
         </p>
 
         <h2
@@ -47,14 +51,14 @@ export default function KvkkContent() {
         >
           2. Kişisel Verilerin İşlenme Amaçları
         </h2>
-        <p>Toplanan kişisel verileriniz, aşağıdaki amaçlarla işlenmektedir:</p>
+        <p>Toplanan kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
         <ul>
-          <li>Ürün ve hizmet taleplerinin karşılanması,</li>
-          <li>Satış, montaj ve bakım hizmetlerinin yürütülmesi,</li>
-          <li>Teknik destek ve garanti işlemlerinin sağlanması,</li>
+          <li>Ürün ve hizmetlerin sunulması, kurulumu ve teknik desteği,</li>
           <li>
-            Müşteri ilişkilerinin yönetimi ve hizmet kalitesinin artırılması,
+            Müşteri taleplerinin karşılanması ve memnuniyetinin artırılması,
           </li>
+          <li>Satış, faturalandırma ve garanti süreçlerinin yürütülmesi,</li>
+          <li>Hizmet kalitesinin ölçülmesi ve geliştirilmesi,</li>
           <li>Yasal yükümlülüklerin yerine getirilmesi.</li>
         </ul>
 
@@ -65,10 +69,11 @@ export default function KvkkContent() {
           3. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi
         </h2>
         <p>
-          Kişisel verileriniz; web sitemiz, iletişim formlarımız, e-posta,
-          telefon, servis kayıt formları veya benzeri yöntemlerle toplanmakta
-          olup KVKK’nın 5. ve 6. maddelerinde belirtilen hukuki sebepler
-          kapsamında işlenmektedir.
+          Kişisel verileriniz; web sitemiz, iletişim formlarımız, çağrı merkezi,
+          e-posta veya servis süreçleri aracılığıyla toplanmaktadır. Bu veriler,
+          KVKK’nın 5. ve 6. maddelerinde belirtilen “sözleşmenin ifası”, “hukuki
+          yükümlülüklerin yerine getirilmesi” ve “meşru menfaat” hükümleri
+          çerçevesinde işlenmektedir.
         </p>
 
         <h2
@@ -78,11 +83,11 @@ export default function KvkkContent() {
           4. Kişisel Verilerin Aktarılması
         </h2>
         <p>
-          Kişisel verileriniz, hizmetin yürütülmesi amacıyla yalnızca gerekli
-          olduğunda ve yasal sınırlara uygun biçimde; iş ortakları,
-          tedarikçiler, muhasebe danışmanları veya yasal mercilerle
-          paylaşılabilir. Eflatun Teknoloji hiçbir koşulda verilerinizi üçüncü
-          kişilere satmaz.
+          Kişisel verileriniz, yalnızca hizmetin yürütülmesi için gerekli olduğu
+          durumlarda ve yasal sınırlara uygun biçimde; tedarikçiler, iş
+          ortakları, mali danışmanlar veya yetkili kamu kurumlarıyla
+          paylaşılabilir. <strong>Eflatun Teknoloji</strong>, hiçbir koşulda
+          verilerinizi üçüncü şahıslara satmaz veya izinsiz şekilde aktarmaz.
         </p>
 
         <h2
@@ -92,10 +97,10 @@ export default function KvkkContent() {
           5. Kişisel Verilerin Saklanma Süresi
         </h2>
         <p>
-          Kişisel verileriniz, yasal süreler boyunca veya işleme amacının
-          ortadan kalkmasına kadar güvenli bir şekilde saklanır. Süre sonunda,
-          veriler şirket politikalarına uygun biçimde anonim hale getirilir veya
-          imha edilir.
+          Kişisel verileriniz, ilgili mevzuatta öngörülen süre boyunca veya
+          işleme amacının ortadan kalkmasına kadar güvenli bir şekilde
+          saklanmaktadır. Süre sonunda veriler, anonim hale getirilerek veya
+          güvenli biçimde imha edilerek sistemlerimizden kaldırılır.
         </p>
 
         <h2
@@ -106,9 +111,9 @@ export default function KvkkContent() {
         </h2>
         <p>
           KVKK’nın 11. maddesi uyarınca; kişisel verilerinizin işlenip
-          işlenmediğini öğrenme, düzeltilmesini talep etme, silinmesini veya yok
-          edilmesini isteme, işleme faaliyetlerine itiraz etme ve zararın
-          giderilmesini talep etme hakkına sahipsiniz.
+          işlenmediğini öğrenme, düzeltilmesini veya silinmesini talep etme,
+          işleme faaliyetlerine itiraz etme ve uğranılan zararın giderilmesini
+          isteme haklarına sahipsiniz.
         </p>
 
         <h2
@@ -118,18 +123,43 @@ export default function KvkkContent() {
           7. Başvuru Yöntemi
         </h2>
         <p>
-          KVKK kapsamındaki taleplerinizi, kimliğinizi doğrulayan belgelerle
-          birlikte <strong>info@eflatunteknoloji.com</strong> adresine e-posta
-          göndererek veya posta yoluyla yukarıdaki adrese ulaştırarak
-          iletebilirsiniz. Başvurular en geç 30 gün içinde ücretsiz olarak
-          sonuçlandırılır.
+          KVKK kapsamındaki taleplerinizi kimliğinizi doğrulayan belgelerle
+          birlikte{" "}
+          <strong>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="text-[#007F8C] hover:underline"
+            >
+              {siteConfig.email}
+            </a>
+          </strong>{" "}
+          adresine e-posta göndererek veya yazılı olarak {siteConfig.address}{" "}
+          adresine iletebilirsiniz. Başvurular en geç 30 gün içinde ücretsiz
+          olarak sonuçlandırılmaktadır.
         </p>
 
-        <p className="mt-6">
-          <strong>Eflatun Teknoloji</strong>, kişisel verilerinizin gizliliğini
-          ve bütünlüğünü korumayı taahhüt eder. Güvenliğiniz için gerekli tüm
-          teknik ve idari önlemler alınmaktadır.
+        <h2
+          className="text-xl font-semibold mt-8 mb-2"
+          style={{ color: COLORS.secondary }}
+        >
+          8. Güvenlik Taahhüdü
+        </h2>
+        <p>
+          <strong>Eflatun Teknoloji</strong>, kişisel verilerinizin gizliliğini,
+          bütünlüğünü ve erişilebilirliğini korumak amacıyla gerekli tüm teknik
+          ve idari tedbirleri almaktadır. Veri güvenliği politikalarımız, ulusal
+          ve uluslararası standartlara uygun şekilde sürekli geliştirilmektedir.
         </p>
+
+        <div className="mt-10 text-sm text-gray-500 border-t pt-4 text-center">
+          <p>
+            <strong>Son Güncelleme Tarihi:</strong> 21 Ekim 2025
+          </p>
+          <p>
+            Bu aydınlatma metni, yasal gereklilikler ve operasyonel süreçlerdeki
+            değişiklikler doğrultusunda düzenli olarak güncellenmektedir.
+          </p>
+        </div>
       </div>
     </div>
   );

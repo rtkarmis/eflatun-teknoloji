@@ -31,6 +31,7 @@ export default function ServiceAreaContent() {
                   ctaUrl={`/hizmet-bolgeleri/${serviceArea.slug}`}
                   ctaText="Detaylı Bilgi →"
                   loading={index === 0 ? "eager" : "lazy"}
+                  priority={index === 0}
                 />
               </article>
             ))}

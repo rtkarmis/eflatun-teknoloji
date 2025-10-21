@@ -16,11 +16,20 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
           return (
             <li key={`${it.label}-${idx}`} className="flex items-center">
               {!isLast && it.href ? (
-                <Link href={it.href} className="hover:underline text-gray-600">
+                <Link
+                  href={it.href}
+                  className="hover:underline touch-target pointer-target text-gray-600"
+                >
                   {it.label}
                 </Link>
               ) : (
-                <span className={isLast ? "text-gray-900 font-medium" : "text-gray-600"}>{it.label}</span>
+                <span
+                  className={
+                    isLast ? "text-gray-900 font-medium" : "text-gray-600"
+                  }
+                >
+                  {it.label}
+                </span>
               )}
               {!isLast && <span className="mx-2 text-gray-400">›</span>}
             </li>

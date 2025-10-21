@@ -1,11 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import Slider from "react-slick";
 
 type SlickSlider = {
   slickGoTo: (index: number) => void;
@@ -64,11 +63,8 @@ export default function ProductGallery({ images }: { images: string[] }) {
   return (
     <div>
       {/* Ana Görsel Alanı */}
-      <motion.div
+      <div
         key={images[0]}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
         className="rounded-2xl overflow-hidden shadow-lg mb-4 bg-gray-100"
       >
         <Slider
@@ -84,10 +80,12 @@ export default function ProductGallery({ images }: { images: string[] }) {
               height={800}
               className="object-contain"
               priority={i === 0}
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchPriority={i === 0 ? "high" : "auto"}
             />
           ))}
         </Slider>
-      </motion.div>
+      </div>
 
       {/* Küçük Önizleme Görselleri (Swipeable) */}
       {images.length > 1 && (

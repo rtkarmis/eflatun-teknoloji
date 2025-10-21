@@ -8,7 +8,6 @@ import { buildProductDetailBreadcrumb } from "@/lib/breadcrumbs";
 import { COLORS } from "@/lib/constants";
 import { siteConfig } from "@/lib/seo";
 import { Product } from "@/types/product";
-import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -48,11 +47,7 @@ export default function ProductDetailContent({
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div>
       <Breadcrumb items={buildProductDetailBreadcrumb(product, params)} />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -162,6 +157,6 @@ export default function ProductDetailContent({
           </CollapsibleSection>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
