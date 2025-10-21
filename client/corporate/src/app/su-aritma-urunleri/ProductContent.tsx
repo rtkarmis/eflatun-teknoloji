@@ -27,7 +27,6 @@ export default function ProductContent() {
                     description={cat.desc}
                     ctaUrl={`/su-aritma-urunleri/${cat.slug}`}
                     loading={i === 0 ? "eager" : "lazy"}
-                    priority={i === 0}
                   />
                 </li>
               ))}

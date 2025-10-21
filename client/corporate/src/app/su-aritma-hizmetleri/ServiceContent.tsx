@@ -14,7 +14,7 @@ const SchemaService = dynamic(
 
 export default function ServiceContent() {
   return (
-    <section>
+    <section className="max-w-6xl mx-auto px-4 py-12">
       <Breadcrumb items={buildServicesBreadcrumb()} />
       <PageTitle text="Hizmetlerimiz" />
 
@@ -31,7 +31,6 @@ export default function ServiceContent() {
               description={service.shortDesc}
               ctaUrl={`/su-aritma-hizmetleri/${service.slug}`}
               loading={i === 0 ? "eager" : "lazy"}
-              priority={i === 0}
             />
           </li>
         ))}

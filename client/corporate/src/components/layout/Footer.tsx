@@ -41,7 +41,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.instagram}
                 target="_blank"
                 aria-label="Instagram"
-                className="text-gray-600 hover:text-pink-600 transition-colors touch-target pointer-target"
+                className="text-gray-600 hover:text-pink-600 transition-colors"
               >
                 <FaInstagram size={20} />
               </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.facebook}
                 target="_blank"
                 aria-label="Facebook"
-                className="text-gray-600 hover:text-blue-600 transition-colors touch-target pointer-target"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <FaFacebook size={20} />
               </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.whatsapp}
                 target="_blank"
                 aria-label="WhatsApp"
-                className="text-gray-600 hover:text-green-600 transition-colors touch-target pointer-target"
+                className="text-gray-600 hover:text-green-600 transition-colors"
               >
                 <FaWhatsapp size={20} />
               </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="hover:text-blue-600 transition touch-target pointer-target"
+                  className="hover:text-blue-600 transition"
                 >
                   {link.label}
                 </Link>
@@ -97,7 +97,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/su-aritma-urunleri/su-aritma-cihazlari"
-                className="hover:text-blue-600 touch-target pointer-target"
+                className="hover:text-blue-600"
               >
                 Su Arıtma Cihazları
               </Link>
@@ -105,7 +105,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/su-aritma-urunleri/su-aritma-filtreleri"
-                className="hover:text-blue-600 touch-target pointer-target"
+                className="hover:text-blue-600"
               >
                 Su Arıtma Filtreleri
               </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/su-aritma-urunleri/su-aritma-ekipmanlari"
-                className="hover:text-blue-600 touch-target pointer-target"
+                className="hover:text-blue-600"
               >
                 Su Arıtma Ekipmanları
               </Link>
@@ -128,34 +128,25 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2 text-sm text-gray-700">
             <li>
-              <Link
-                href="/gizlilik-politikasi"
-                className="hover:text-blue-600 touch-target pointer-target"
-              >
+              <Link href="/gizlilik-politikasi" className="hover:text-blue-600">
                 Gizlilik Politikası
               </Link>
             </li>
             <li>
-              <Link
-                href="/cerez-politikasi"
-                className="hover:text-blue-600 touch-target pointer-target"
-              >
+              <Link href="/cerez-politikasi" className="hover:text-blue-600">
                 Çerez Politikası
               </Link>
             </li>
             <li>
               <Link
-                href="/kvkk-aydinlatma-metni "
-                className="hover:text-blue-600 touch-target pointer-target"
+                href="/kvkk-aydinlatma-metni"
+                className="hover:text-blue-600"
               >
                 KVKK Aydınlatma Metni
               </Link>
             </li>
             <li>
-              <Link
-                href="/site-haritasi"
-                className="hover:text-blue-600 touch-target pointer-target"
-              >
+              <Link href="/site-haritasi" className="hover:text-blue-600">
                 Site Haritası
               </Link>
             </li>
@@ -174,7 +165,7 @@ export default function Footer() {
               <FaPhoneAlt className="inline-block text-gray-500 mr-2" />
               <a
                 href={`tel:${siteConfig.phone}`}
-                className="hover:text-blue-600 touch-target pointer-target"
+                className="hover:text-blue-600"
               >
                 {siteConfig.phone}
               </a>
@@ -183,7 +174,7 @@ export default function Footer() {
               <FaEnvelope className="inline-block text-gray-500 mr-2" />
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="hover:text-blue-600 touch-target"
+                className="hover:text-blue-600"
               >
                 {siteConfig.email}
               </a>
@@ -212,14 +203,14 @@ export default function Footer() {
           saklıdır.
         </p>
         <p className="mt-1">
-          {siteConfig.siteName} | Vergi Dairesi: Bolu |{" "}
-          <strong>VKN: {siteConfig.vkn}</strong>
+          Ramazan Karmış - Eflatun Teknoloji Şahıs Şirketi | Vergi Dairesi: Bolu
+          | <strong>VKN: {siteConfig.vkn}</strong>
         </p>
         <p className="mt-3 text-gray-400 text-[11px] tracking-wide">
           Made with <span className="text-red-500">❤️</span> by{" "}
           <Link
             href="/"
-            className="font-medium text-gray-500 hover:text-blue-600 transition touch-target pointer-target"
+            className="font-medium text-gray-500 hover:text-blue-600 transition"
           >
             Eflatun Teknoloji
           </Link>

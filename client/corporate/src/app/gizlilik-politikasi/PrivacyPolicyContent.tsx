@@ -15,18 +15,19 @@ export default function PrivacyPolicyContent() {
 
       <div className="prose prose-gray max-w-none text-gray-800 leading-relaxed">
         <p>
-          <strong>Eflatun Teknoloji Su Arıtma Sistemleri</strong> (“Şirket”)
-          olarak, kullanıcılarımızın gizliliğini ve kişisel verilerinin
-          korunmasını en yüksek öncelik olarak görmekteyiz. Bu gizlilik
-          politikası,{" "}
+          <strong>Eflatun Teknoloji</strong> (“Şirket”) olarak,
+          kullanıcılarımızın gizliliğine ve kişisel verilerinin korunmasına
+          büyük önem veriyoruz. Bu gizlilik politikası,{" "}
+          <strong>Ramazan Karmış – Eflatun Teknoloji (Şahıs Şirketi)</strong>{" "}
+          tarafından işletilen{" "}
           <a
             href="https://eflatunteknoloji.com"
-            className="text-[#007F8C] hover:underline"
+            className="text-blue-600 underline"
           >
             eflatunteknoloji.com
           </a>{" "}
-          adresli web sitemizi ziyaret eden kullanıcıların verilerinin nasıl
-          toplandığını, işlendiğini ve korunduğunu açıklamaktadır.
+          adresli web sitesi üzerinden toplanan bilgilerin nasıl işlendiğini ve
+          korunduğunu açıklar.
         </p>
 
         <h2
@@ -36,26 +37,25 @@ export default function PrivacyPolicyContent() {
           1. Toplanan Bilgiler
         </h2>
         <p>
-          Web sitemizi ziyaret ettiğinizde veya iletişim formlarını
+          Web sitemizi ziyaret ettiğinizde veya iletişim formlarımızı
           doldurduğunuzda; ad, soyad, telefon numarası, e-posta adresi, konum
-          bilgisi gibi kişisel veriler toplanabilir. Ayrıca, çerez (cookie)
-          teknolojisi aracılığıyla anonim ziyaretçi verileri (IP adresi,
-          tarayıcı türü, ziyaret edilen sayfalar gibi) analiz amaçlı olarak
-          işlenebilir.
+          bilgisi gibi kişisel veriler toplanabilir. Ayrıca, çerezler
+          aracılığıyla anonim ziyaretçi verileri (IP adresi, tarayıcı türü,
+          sayfa görüntüleme istatistikleri) de işlenebilir.
         </p>
 
         <h2
           className="text-xl font-semibold mt-8 mb-2"
           style={{ color: COLORS.secondary }}
         >
-          2. Verilerin Kullanım Amaçları
+          2. Verilerin Kullanım Amacı
         </h2>
         <ul>
-          <li>Ürün ve hizmet taleplerinizi değerlendirmek ve yanıtlamak,</li>
-          <li>Satış, kurulum ve servis süreçlerini yürütmek,</li>
-          <li>Teknik destek ve garanti hizmetlerini sağlamak,</li>
+          <li>Hizmet taleplerinizi değerlendirmek, size dönüş sağlamak,</li>
+          <li>Satış ve servis süreçlerini yürütmek,</li>
+          <li>Teknik destek ve garanti hizmetlerini yerine getirmek,</li>
           <li>
-            Web sitesi performansını ve kullanıcı deneyimini iyileştirmek,
+            Kullanıcı deneyimini iyileştirmek ve web sitesini optimize etmek,
           </li>
           <li>Yasal yükümlülükleri yerine getirmek.</li>
         </ul>
@@ -67,11 +67,11 @@ export default function PrivacyPolicyContent() {
           3. Çerez (Cookie) Kullanımı
         </h2>
         <p>
-          Sitemiz, kullanıcı deneyimini geliştirmek ve site performansını analiz
-          etmek amacıyla çerezlerden faydalanmaktadır. Çerezler kişisel
-          bilgilerinizi doğrudan depolamaz; yalnızca tercihlerinizi hatırlamak
-          ve istatistiksel analiz yapmak için kullanılır. Tarayıcı ayarlarınız
-          üzerinden çerezleri dilediğiniz zaman devre dışı bırakabilirsiniz.
+          Sitemiz, deneyiminizi geliştirmek ve hizmet kalitemizi artırmak
+          amacıyla çerez (cookie) teknolojisinden yararlanır. Çerezler kişisel
+          bilgilerinizi depolamaz; yalnızca tercihlerinizi hatırlamak ve
+          istatistiksel analiz yapmak için kullanılır. Tarayıcı ayarlarınızdan
+          çerezleri dilediğiniz zaman devre dışı bırakabilirsiniz.
         </p>
 
         <h2
@@ -82,21 +82,9 @@ export default function PrivacyPolicyContent() {
         </h2>
         <p>
           Kişisel verileriniz, yalnızca belirtilen amaçlar doğrultusunda ve
-          yasal süre boyunca güvenli sistemlerde saklanır.{" "}
-          <strong>Eflatun Teknoloji</strong>, kişisel verilerinizin güvenliğini
-          sağlamak amacıyla ulusal ve uluslararası güvenlik standartlarına uygun
-          teknik ve idari önlemleri uygular.
-        </p>
-        <p>
-          Kişisel verilerinizin işlenmesi, saklanması ve korunmasına ilişkin
-          ayrıntılı bilgilere{" "}
-          <a
-            href="/kvkk-aydinlatma-metni"
-            className="text-[#007F8C] font-medium hover:underline"
-          >
-            KVKK Aydınlatma Metni
-          </a>{" "}
-          sayfamızdan ulaşabilirsiniz.
+          yasal süre boyunca güvenli sunucularda saklanır. Eflatun Teknoloji,
+          verilerinizi korumak için gerekli tüm teknik ve idari güvenlik
+          önlemlerini uygular.
         </p>
 
         <h2
@@ -106,11 +94,11 @@ export default function PrivacyPolicyContent() {
           5. Verilerin Paylaşımı
         </h2>
         <p>
-          Kişisel verileriniz, yalnızca hizmetlerin yürütülmesi veya yasal
-          yükümlülüklerin yerine getirilmesi amacıyla; tedarikçiler,
-          danışmanlar, iş ortakları veya yetkili kamu kurumlarıyla sınırlı
-          şekilde paylaşılabilir. Verileriniz hiçbir koşulda üçüncü şahıslara
-          satılmaz veya izinsiz olarak aktarılmaz.
+          Kişisel verileriniz üçüncü kişilerle yalnızca hizmetin sağlanması
+          amacıyla veya yasal zorunluluk durumunda paylaşılabilir. Bu kapsamda
+          verileriniz, servis sağlayıcılarımız, muhasebe danışmanlarımız veya
+          yetkili kamu kurumlarıyla sınırlı şekilde paylaşılır. Verileriniz
+          hiçbir koşulda satılmaz veya izinsiz paylaşılmaz.
         </p>
 
         <h2
@@ -120,10 +108,10 @@ export default function PrivacyPolicyContent() {
           6. Haklarınız
         </h2>
         <p>
-          KVKK’nın 11. maddesi uyarınca, kişisel verilerinizin işlenip
+          KVKK’nın 11. maddesi uyarınca; kişisel verilerinizin işlenip
           işlenmediğini öğrenme, düzeltilmesini veya silinmesini talep etme,
-          işleme faaliyetlerine itiraz etme ve uğradığınız zararın giderilmesini
-          isteme hakkına sahipsiniz.
+          işleme faaliyetlerine itiraz etme ve zararın giderilmesini talep etme
+          hakkına sahipsiniz.
         </p>
 
         <h2
@@ -133,18 +121,18 @@ export default function PrivacyPolicyContent() {
           7. İletişim ve Başvuru
         </h2>
         <p>
-          Gizlilik politikamız veya KVKK kapsamındaki talepleriniz için bizimle
-          iletişime geçebilirsiniz:
+          Gizlilik politikamız hakkında sorularınız veya KVKK kapsamındaki
+          başvurularınız için:
         </p>
         <p>
-          <strong>Eflatun Teknoloji Su Arıtma Sistemleri</strong>
+          <strong>Ramazan Karmış – Eflatun Teknoloji</strong>
           <br />
           <strong>Adres:</strong> {siteConfig.address}
           <br />
           <strong>E-posta:</strong>{" "}
           <a
             href={`mailto:${siteConfig.email}`}
-            className="text-[#007F8C] hover:underline"
+            className="text-blue-600 underline"
           >
             {siteConfig.email}
           </a>
@@ -152,10 +140,12 @@ export default function PrivacyPolicyContent() {
           <strong>Telefon:</strong>{" "}
           <a
             href={`tel:${siteConfig.phone}`}
-            className="text-[#007F8C] hover:underline"
+            className="text-blue-600 underline"
           >
             {siteConfig.phoneDisplay || siteConfig.phone}
           </a>
+          <br />
+          <strong>Vergi No:</strong> {siteConfig.vkn} – Bolu Vergi Dairesi
         </p>
 
         <h2
@@ -165,33 +155,22 @@ export default function PrivacyPolicyContent() {
           8. Güncellemeler
         </h2>
         <p>
-          Bu gizlilik politikası, yasal gereklilikler veya hizmet kapsamındaki
-          değişikliklere bağlı olarak düzenli şekilde güncellenebilir. Güncel
-          sürüm her zaman{" "}
+          Bu gizlilik politikası, mevzuat değişikliklerine veya hizmet kapsamına
+          göre güncellenebilir. Güncel metin her zaman{" "}
           <a
             href="https://eflatunteknoloji.com/gizlilik-politikasi"
-            className="text-[#007F8C] hover:underline"
+            className="text-blue-600 underline"
           >
             eflatunteknoloji.com/gizlilik-politikasi
           </a>{" "}
-          adresinde yayınlanır.
+          adresinde yayımlanır.
         </p>
 
         <p className="mt-6">
-          <strong>Eflatun Teknoloji</strong>, kullanıcı gizliliğini koruma
-          konusundaki taahhüdünü sürdürmekte ve tüm faaliyetlerinde şeffaflık
-          ilkesini benimsemektedir.
+          <strong>Eflatun Teknoloji</strong>, kullanıcılarının gizliliğini
+          koruma taahhüdünü sürdürmekte ve tüm süreçlerinde şeffaflık ilkesiyle
+          hareket etmektedir.
         </p>
-
-        <div className="mt-10 text-sm text-gray-500 border-t pt-4 text-center">
-          <p>
-            <strong>Son Güncelleme Tarihi:</strong> 21 Ekim 2025
-          </p>
-          <p>
-            Bu gizlilik politikası, yasal gereklilikler ve teknolojik gelişmeler
-            doğrultusunda düzenli olarak gözden geçirilmektedir.
-          </p>
-        </div>
       </div>
     </div>
   );

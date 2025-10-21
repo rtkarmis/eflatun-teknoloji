@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import SchemaProductSingle from "@/components/seo/product/SchemaProductSingle";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import InfoCard from "@/components/ui/InfoCard";
@@ -35,11 +36,7 @@ export default function ProductCategoryContent({
                   }
                   title={product.name}
                   description={product.shortDesc}
-                  ctaUrl={`/su-aritma-urunleri/${params.kategori}/${
-                    product.slug
-                  }?color=${
-                    product.colorVariants.find((v) => v.isCover)?.colorName
-                  }`}
+                  ctaUrl={`/su-aritma-urunleri/${params.kategori}/${product.slug}`}
                   loading={i === 0 ? "eager" : "lazy"}
                 />
               </li>

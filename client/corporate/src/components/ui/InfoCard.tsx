@@ -12,7 +12,6 @@ interface InfoCardProps {
   ctaColor?: string;
   ctaText?: string;
   loading?: "eager" | "lazy";
-  priority?: boolean;
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -25,7 +24,6 @@ const InfoCard: React.FC<InfoCardProps> = ({
   imageAlt,
   ctaText,
   loading = "lazy",
-  priority = false,
 }) => {
   return (
     <Link href={ctaUrl}>
@@ -39,8 +37,6 @@ const InfoCard: React.FC<InfoCardProps> = ({
           loading={loading}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
           quality={70}
-          priority={priority} // <--- eklendi
-          fetchPriority={priority ? "high" : "auto"}
         />
 
         <h2

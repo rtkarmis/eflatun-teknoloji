@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRMApp.Domain\CRMApp.Domain.csproj" />
+    <ProjectReference Include="..\CRMApp.Shared\CRMApp.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Folder Include="Common\Behaviors\" />
+    <Folder Include="Features\Commands\Customer\Create\" />
+    <Folder Include="Features\Commands\Customer\Update\" />
+    <Folder Include="Features\Commands\Customer\Delete\" />
+    <Folder Include="Features\Commands\Product\Create\" />
+    <Folder Include="Features\Commands\Product\Update\" />
+	<Folder Include="Features\Commands\Supplier\Create\" />
+	<Folder Include="Features\Commands\Supplier\Update\" />
+	<Folder Include="Features\Commands\Supplier\Delete\" />
+    <Folder Include="Features\Queries\Customer\GetAll\" />
+    <Folder Include="Features\Queries\Customer\GetById\" />
+	<Folder Include="Features\Queries\Supplier\GetAll\" />
+	<Folder Include="Features\Queries\Supplier\GetById\" />
+	<Folder Include="Features\Dtos\Customer\" />
+	<Folder Include="Features\Dtos\Product\" />
+	<Folder Include="Features\Dtos\Supplier\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
