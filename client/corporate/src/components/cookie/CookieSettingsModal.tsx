@@ -21,7 +21,7 @@ export default function CookieSettingsModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[10000] p-1 sm:p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg flex flex-col max-h-[98vh] sm:max-h-[90vh] overflow-hidden border border-gray-200">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg flex flex-col max-h-[80vh] sm:max-h-[90vh] overflow-hidden border border-gray-200">
         {/* Header */}
         <div
           className="px-4 sm:px-8 py-4 border-b flex justify-between items-center"
@@ -43,7 +43,7 @@ export default function CookieSettingsModal({
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-8 space-y-10">
+  <div className="flex-1 overflow-y-auto p-2 sm:p-8 space-y-8">
           <section>
             <h3 className="font-semibold text-gray-900 text-lg">
               Çerez Ayarları

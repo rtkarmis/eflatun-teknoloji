@@ -23,6 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={inter.className}>
+      <head>
+        <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+      </head>
       <body
         className={`${inter.className} bg-[#F0F5FA] text-gray-900`}
         style={{ minWidth: 0 }}
