@@ -23,9 +23,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={inter.className}>
-      <head>
-        <link rel="icon" href="/icons/icon.webp" type="image/webp" />
-      </head>
       <body
         className={`${inter.className} bg-[#F0F5FA] text-gray-900`}
         style={{ minWidth: 0 }}
