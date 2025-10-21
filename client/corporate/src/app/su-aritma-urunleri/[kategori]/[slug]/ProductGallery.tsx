@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
@@ -10,47 +10,46 @@ type SlickSlider = {
   slickGoTo: (index: number) => void;
 } | null;
 
-export default function ProductGallery({ images }: { images: string[] }) {
+function ProductGalleryBase({ images }: { images: string[] }) {
   const mainRef = useRef<SlickSlider>(null);
-  const [current, setCurrent] = useState(0);
   const thumbsRef = useRef<HTMLDivElement | null>(null);
+  const [current, setCurrent] = useState(0);
 
-  /** 🎯 Görseller değiştiğinde slider sıfırlanır (küçük gecikmeyle flicker engellenir) */
+  /** Görseller değiştiğinde slider sıfırlanır */
   useEffect(() => {
     if (!mainRef.current || !images?.length) return;
     const t = setTimeout(() => {
       mainRef.current?.slickGoTo(0);
       setCurrent(0);
-    }, 150);
+    }, 120);
     return () => clearTimeout(t);
   }, [images]);
 
-  // When the current slide changes, ensure the corresponding thumbnail is visible
+  /** Aktif küçük görsel görünür alanda kalır */
   useEffect(() => {
     const container = thumbsRef.current;
     if (!container) return;
     const active = container.querySelector(
       `[data-thumb-index="${current}"]`
     ) as HTMLElement | null;
-    if (active) {
-      // center the active thumbnail in the visible area when possible
-      active.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
-    }
+    active?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
   }, [current]);
 
-  if (!images || images.length === 0) return null;
+  if (!images?.length) return null;
 
-  const mainSettings: Record<string, unknown> = {
+  /** Slick ayarları */
+  const mainSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     dots: false,
     swipe: true,
     adaptiveHeight: true,
+    lazyLoad: "ondemand",
     beforeChange: (_: number, next: number) => setCurrent(next),
     responsive: [
       {
@@ -60,64 +59,91 @@ export default function ProductGallery({ images }: { images: string[] }) {
     ],
   };
 
+  /** 🧠 Prefetch mekanizması — küçük görsele hover olduğunda ana görsel önceden yüklenir */
+  const prefetchImage = (src: string) => {
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.as = "image";
+    link.href = src;
+    document.head.appendChild(link);
+  };
+
   return (
     <div>
-      {/* Ana Görsel Alanı */}
-      <div
-        key={images[0]}
-        className="rounded-2xl overflow-hidden shadow-lg mb-4 bg-gray-100"
-      >
+      {/* 🖼️ Ana Görsel */}
+      <div className="rounded-2xl overflow-hidden shadow-lg mb-4 bg-gray-100">
         <Slider
           ref={(c: unknown) => (mainRef.current = c as SlickSlider)}
           {...mainSettings}
         >
           {images.map((src, i) => (
             <Image
-              src={src}
               key={i}
+              src={src}
               alt={`Ürün görseli ${i + 1}`}
-              width={1200}
-              height={800}
-              className="object-contain"
+              width={1500}
+              height={1500}
+              quality={75}
               priority={i === 0}
               loading={i === 0 ? "eager" : "lazy"}
-              fetchPriority={i === 0 ? "high" : "auto"}
+              fetchPriority={i === 0 ? "high" : "low"}
+              decoding="async"
+              sizes="(max-width:480px) 90vw, (max-width:768px) 70vw, (max-width:1200px) 50vw, 600px"
+              className="object-contain w-full h-auto max-w-[600px] mx-auto rounded-xl bg-gray-50 aspect-square select-none will-change-transform"
+              style={{ color: "transparent" }}
             />
           ))}
         </Slider>
       </div>
 
-      {/* Küçük Önizleme Görselleri (Swipeable) */}
+      {/* 🖼️ Küçük Önizlemeler */}
       {images.length > 1 && (
-        <div className="relative overflow-x-auto scrollbar-hide">
+        <div className="relative overflow-x-auto scrollbar-hide will-change-transform">
           <div
             ref={thumbsRef}
-            className="flex items-center gap-3 py-2 px-1 snap-x snap-mandatory scroll-smooth touch-pan-x"
-            style={{ WebkitOverflowScrolling: "touch" }}
+            className="flex items-center gap-2 py-2 px-1 snap-x snap-mandatory scroll-smooth touch-pan-x select-none"
+            style={{
+              WebkitOverflowScrolling: "touch",
+              scrollBehavior: "smooth",
+            }}
           >
             {images.map((src, i) => (
               <button
                 key={i}
                 data-thumb-index={i}
+                onMouseEnter={() => prefetchImage(src)} // 🔹 hover sırasında prefetch
+                onFocus={() => prefetchImage(src)} // 🔹 klavye navigasyonu desteği
                 onClick={() => {
                   mainRef.current?.slickGoTo(i);
                   setCurrent(i);
                 }}
-                className={`flex-shrink-0 snap-center rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                  current === i
-                    ? "border-blue-600 shadow"
-                    : "border-transparent hover:border-gray-300"
-                }`}
-                aria-label={`Görsel ${i + 1}`}
+                aria-label={`Ürün küçük görsel ${i + 1}`}
+                className={`relative flex-shrink-0 snap-center rounded-xl overflow-hidden border transition-all duration-200 ease-out
+                  ${
+                    current === i
+                      ? "border-[color:var(--color-primary)] shadow-md scale-105"
+                      : "border-gray-200 hover:border-gray-400 hover:scale-[1.02]"
+                  }`}
+                style={{
+                  width: 60,
+                  height: 60,
+                  willChange: "transform",
+                }}
               >
                 <Image
                   src={src}
-                  alt={`Görsel ${i + 1}`}
+                  alt={`Ürün küçük görsel ${i + 1}`}
                   width={60}
                   height={60}
-                  className="object-cover w-[60px] h-[60px]"
-                  priority={i === 0}
+                  quality={70}
+                  loading="lazy"
+                  decoding="async"
+                  sizes="60px"
+                  className="object-cover w-full h-full bg-gray-100"
                 />
+                {current === i && (
+                  <span className="absolute inset-0 ring-2 ring-[color:var(--color-primary)] rounded-xl pointer-events-none"></span>
+                )}
               </button>
             ))}
           </div>
@@ -126,3 +152,5 @@ export default function ProductGallery({ images }: { images: string[] }) {
     </div>
   );
 }
+
+export default memo(ProductGalleryBase);
