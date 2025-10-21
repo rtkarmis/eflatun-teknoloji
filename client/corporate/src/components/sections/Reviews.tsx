@@ -49,24 +49,30 @@ export default function Reviews() {
 
   const reviews = data?.reviews ?? [];
 
-  // Refs and scroll logic
+  // 🔹 Scroll kontrolü ve ok görünürlüğü
   const updateArrows = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
     const { scrollLeft, scrollWidth, clientWidth } = container;
+    const maxScrollLeft = scrollWidth - clientWidth - 1; // tolerans
     setShowLeftArrow(scrollLeft > 8);
-    setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 8);
+    setShowRightArrow(scrollLeft < maxScrollLeft);
   }, []);
 
-  const scroll = useCallback((dir: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const width = container.clientWidth * 0.9;
-    container.scrollBy({
-      left: dir === "left" ? -width : width,
-      behavior: "smooth",
-    });
-  }, []);
+  const scroll = useCallback(
+    (dir: "left" | "right") => {
+      const container = scrollRef.current;
+      if (!container) return;
+      const width = container.clientWidth * 0.9;
+      container.scrollBy({
+        left: dir === "left" ? -width : width,
+        behavior: "smooth",
+      });
+      // 👇 Scroll animasyonu tamamlandıktan sonra okları güncelle
+      setTimeout(updateArrows, 400);
+    },
+    [updateArrows]
+  );
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -111,14 +117,13 @@ export default function Reviews() {
 
           {!loading && reviews.length > 0 && (
             <>
-              {/* Mobil scroll-snap alanı */}
+              {/* 🔹 Scroll alanı */}
               <m.div
                 ref={scrollRef}
-                className="flex overflow-x-auto gap-4 snap-x snap-mandatory scroll-smooth px-2 md:px-4 scrollbar-hide md:overflow-hidden"
+                className="flex overflow-x-auto gap-4 snap-x snap-mandatory scroll-smooth px-2 md:px-4 scrollbar-hide"
                 style={{
                   WebkitOverflowScrolling: "touch",
                   overscrollBehaviorX: "contain",
-                  scrollSnapType: "x mandatory",
                 }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -177,7 +182,7 @@ export default function Reviews() {
                 ))}
               </m.div>
 
-              {/* Masaüstü ok butonları */}
+              {/* 🔹 Masaüstü ok butonları */}
               <div className="hidden md:flex justify-between absolute top-1/2 left-0 right-0 px-2 -translate-y-1/2 pointer-events-none">
                 {showLeftArrow && (
                   <button
@@ -199,7 +204,7 @@ export default function Reviews() {
                 )}
               </div>
 
-              {/* CTA */}
+              {/* 🔹 CTA */}
               <m.div
                 className="mt-10"
                 initial={{ opacity: 0 }}

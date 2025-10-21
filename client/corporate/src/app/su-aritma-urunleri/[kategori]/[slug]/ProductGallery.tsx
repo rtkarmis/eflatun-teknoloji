@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, memo } from "react";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
-import Slider from "react-slick";
+import dynamic from "next/dynamic";
+
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 type SlickSlider = {
   slickGoTo: (index: number) => void;
@@ -15,13 +15,19 @@ function ProductGalleryBase({ images }: { images: string[] }) {
   const thumbsRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);
 
+  /** CSS'leri sadece tarayıcıda yükle */
+  useEffect(() => {
+    import("slick-carousel/slick/slick.css");
+    import("slick-carousel/slick/slick-theme.css");
+  }, []);
+
   /** Görseller değiştiğinde slider sıfırlanır */
   useEffect(() => {
     if (!mainRef.current || !images?.length) return;
     const t = setTimeout(() => {
       mainRef.current?.slickGoTo(0);
       setCurrent(0);
-    }, 120);
+    }, 100);
     return () => clearTimeout(t);
   }, [images]);
 
@@ -51,18 +57,13 @@ function ProductGalleryBase({ images }: { images: string[] }) {
     adaptiveHeight: true,
     lazyLoad: "ondemand",
     beforeChange: (_: number, next: number) => setCurrent(next),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: { arrows: false, dots: true },
-      },
-    ],
+    responsive: [{ breakpoint: 768, settings: { arrows: false, dots: true } }],
   };
 
-  /** 🧠 Prefetch mekanizması — küçük görsele hover olduğunda ana görsel önceden yüklenir */
-  const prefetchImage = (src: string) => {
+  /** 🧠 Hover sırasında preload */
+  const preloadImage = (src: string) => {
     const link = document.createElement("link");
-    link.rel = "prefetch";
+    link.rel = "preload";
     link.as = "image";
     link.href = src;
     document.head.appendChild(link);
@@ -81,12 +82,12 @@ function ProductGalleryBase({ images }: { images: string[] }) {
               key={i}
               src={src}
               alt={`Ürün görseli ${i + 1}`}
-              width={1500}
-              height={1500}
+              width={600}
+              height={600}
               quality={75}
-              priority={i === 0}
-              loading={i === 0 ? "eager" : "lazy"}
-              fetchPriority={i === 0 ? "high" : "low"}
+              priority
+              fetchPriority="high"
+              loading="eager"
               decoding="async"
               sizes="(max-width:480px) 90vw, (max-width:768px) 70vw, (max-width:1200px) 50vw, 600px"
               className="object-contain w-full h-auto max-w-[600px] mx-auto rounded-xl bg-gray-50 aspect-square select-none will-change-transform"
@@ -111,19 +112,18 @@ function ProductGalleryBase({ images }: { images: string[] }) {
               <button
                 key={i}
                 data-thumb-index={i}
-                onMouseEnter={() => prefetchImage(src)} // 🔹 hover sırasında prefetch
-                onFocus={() => prefetchImage(src)} // 🔹 klavye navigasyonu desteği
+                onMouseEnter={() => preloadImage(src)}
+                onFocus={() => preloadImage(src)}
                 onClick={() => {
                   mainRef.current?.slickGoTo(i);
                   setCurrent(i);
                 }}
                 aria-label={`Ürün küçük görsel ${i + 1}`}
-                className={`relative flex-shrink-0 snap-center rounded-xl overflow-hidden border transition-all duration-200 ease-out
-                  ${
-                    current === i
-                      ? "border-[color:var(--color-primary)] shadow-md scale-105"
-                      : "border-gray-200 hover:border-gray-400 hover:scale-[1.02]"
-                  }`}
+                className={`relative flex-shrink-0 snap-center rounded-xl overflow-hidden border transition-all duration-200 ease-out ${
+                  current === i
+                    ? "border-[color:var(--color-primary)] shadow-md scale-105"
+                    : "border-gray-200 hover:border-gray-400 hover:scale-[1.02]"
+                }`}
                 style={{
                   width: 60,
                   height: 60,
@@ -138,6 +138,7 @@ function ProductGalleryBase({ images }: { images: string[] }) {
                   quality={70}
                   loading="lazy"
                   decoding="async"
+                  fetchPriority="low"
                   sizes="60px"
                   className="object-cover w-full h-full bg-gray-100"
                 />

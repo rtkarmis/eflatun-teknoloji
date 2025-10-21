@@ -29,10 +29,17 @@ export async function generateMetadata({
   params: { kategori: string; slug: string };
   searchParams?: { color?: string | string[] };
 }) {
-  const { slug } = params;
-  const colorParam = Array.isArray(searchParams?.color)
-    ? searchParams.color[0]
-    : searchParams?.color;
+  // Next.js 14+ params ve searchParams dinamik API'si asenkron olabilir
+  const resolvedParams =
+    typeof params === "object" && "then" in params ? await params : params;
+  const resolvedSearchParams =
+    typeof searchParams === "object" && "then" in searchParams
+      ? await searchParams
+      : searchParams;
+  const { slug } = resolvedParams;
+  const colorParam = Array.isArray(resolvedSearchParams?.color)
+    ? resolvedSearchParams.color[0]
+    : resolvedSearchParams?.color;
 
   const product = products.find((p) => p.slug === slug);
   if (!product) return notFound();
@@ -64,10 +71,17 @@ export default async function ProductDetailPage({
   params: { kategori: string; slug: string };
   searchParams?: { color?: string | string[] };
 }) {
-  const { kategori, slug } = params;
-  const colorParam = Array.isArray(searchParams?.color)
-    ? searchParams.color[0]
-    : searchParams?.color;
+  // Next.js 14+ params ve searchParams dinamik API'si asenkron olabilir
+  const resolvedParams =
+    typeof params === "object" && "then" in params ? await params : params;
+  const resolvedSearchParams =
+    typeof searchParams === "object" && "then" in searchParams
+      ? await searchParams
+      : searchParams;
+  const { kategori, slug } = resolvedParams;
+  const colorParam = Array.isArray(resolvedSearchParams?.color)
+    ? resolvedSearchParams.color[0]
+    : resolvedSearchParams?.color;
 
   const product = products.find((p) => p.slug === slug);
   if (!product) return notFound();

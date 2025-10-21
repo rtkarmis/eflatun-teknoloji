@@ -19,13 +19,15 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 480, 640, 828, 1080],
     imageSizes: [16, 32, 64, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 7, // 1 hafta cache
+    minimumCacheTTL: 60 * 60 * 24 * 7, // 1 hafta cache,
+    qualities: [70, 75, 80],
   },
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ["framer-motion", "react-icons"],
     esmExternals: true,
   },
+  swcMinify: true,
   compiler: {
     removeConsole: true,
     styledComponents: true,
