@@ -177,7 +177,13 @@ export function getLocalBusinessSchema() {
           "Saturday",
         ],
         opens: "09:00",
-        closes: "19:00",
+        closes: "21:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "12:00",
+        closes: "21:00",
       },
     ],
   };

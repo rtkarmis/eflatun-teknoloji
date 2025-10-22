@@ -39,14 +39,13 @@ export default function SchemaContact() {
           "Saturday",
         ],
         opens: "09:00",
-        closes: "20:00",
+        closes: "21:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: "Sunday",
-        opens: "00:00",
-        closes: "00:00",
-        description: "Kapalı",
+        opens: "12:00",
+        closes: "21:00",
       },
     ],
     contactPoint: [
@@ -66,8 +65,8 @@ export default function SchemaContact() {
     ],
     sameAs: [
       "https://www.google.com/maps/place/Eflatun+%C3%87orap+ve+Su+Ar%C4%B1tma+Bolu/",
-      "https://www.instagram.com/eflatunteknoloji",
-      "https://www.facebook.com/eflatunteknoloji",
+      siteConfig.socialLinks.instagram,
+      siteConfig.socialLinks.facebook,
     ],
   };
 

@@ -14,8 +14,8 @@ export default function Reviews() {
   const [loading, setLoading] = useState(true);
   const [canHover, setCanHover] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   // Fetch reviews (cached)
   useEffect(() => {
@@ -49,36 +49,88 @@ export default function Reviews() {
 
   const reviews = data?.reviews ?? [];
 
-  // Refs and scroll logic
-  const updateArrows = useCallback(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const { scrollLeft, scrollWidth, clientWidth } = container;
-    setShowLeftArrow(scrollLeft > 8);
-    setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 8);
-  }, []);
-
-  const scroll = useCallback((dir: "left" | "right") => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const width = container.clientWidth * 0.9;
-    container.scrollBy({
-      left: dir === "left" ? -width : width,
-      behavior: "smooth",
-    });
-  }, []);
-
+  // Masaüstü/mobil ayrımı
   useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Masaüstü için oklarla scroll ve index güncelleme
+  const [atEnd, setAtEnd] = useState(false);
+  const scrollDesktop = useCallback(
+    (dir: "left" | "right") => {
+      const container = scrollRef.current;
+      if (!container) return;
+      const cardEls = Array.from(container.children) as HTMLElement[];
+      const cardWidth = cardEls[0]?.offsetWidth || 1;
+      let newIndex = activeIndex;
+      if (dir === "left" && activeIndex > 0) {
+        newIndex = activeIndex - 1;
+      } else if (dir === "right" && activeIndex < reviews.length - 1) {
+        newIndex = activeIndex + 1;
+      }
+      setActiveIndex(newIndex);
+      container.scrollTo({
+        left: cardWidth * newIndex + 16 * newIndex, // 16px gap varsayımı
+        behavior: "smooth",
+      });
+      // Scroll sonrası atEnd'i güncelle
+      setTimeout(() => {
+        const lastCard = cardEls[cardEls.length - 1];
+        const lastCardRight = lastCard.offsetLeft + lastCard.offsetWidth;
+        const containerRight = container.scrollLeft + container.clientWidth;
+        setAtEnd(containerRight >= lastCardRight - 1);
+      }, 350);
+    },
+    [activeIndex, reviews.length]
+  );
+
+  // Son kart en sağda mı kontrolü (her scroll ve resize'da güncellenir)
+  useEffect(() => {
+    if (!isDesktop) return;
     const container = scrollRef.current;
     if (!container) return;
-    updateArrows();
-    container.addEventListener("scroll", updateArrows, { passive: true });
-    window.addEventListener("resize", updateArrows);
-    return () => {
-      container.removeEventListener("scroll", updateArrows);
-      window.removeEventListener("resize", updateArrows);
+    const checkAtEnd = () => {
+      const cardEls = Array.from(container.children) as HTMLElement[];
+      if (cardEls.length === 0) return setAtEnd(false);
+      const lastCard = cardEls[cardEls.length - 1];
+      const lastCardRight = lastCard.offsetLeft + lastCard.offsetWidth;
+      const containerRight = container.scrollLeft + container.clientWidth;
+      setAtEnd(containerRight >= lastCardRight - 1);
     };
-  }, [updateArrows]);
+    checkAtEnd();
+    container.addEventListener("scroll", checkAtEnd, { passive: true });
+    window.addEventListener("resize", checkAtEnd);
+    return () => {
+      container.removeEventListener("scroll", checkAtEnd);
+      window.removeEventListener("resize", checkAtEnd);
+    };
+  }, [isDesktop, reviews.length]);
+
+  // Scroll pozisyonu değişince aktif kartı güncelle
+  useEffect(() => {
+    if (!isDesktop) return;
+    const container = scrollRef.current;
+    if (!container) return;
+    const onScroll = () => {
+      const cardEls = Array.from(container.children) as HTMLElement[];
+      const scrollLeft = container.scrollLeft;
+      let idx = 0;
+      let minDiff = Infinity;
+      cardEls.forEach((el, i) => {
+        const diff = Math.abs(el.offsetLeft - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          idx = i;
+        }
+      });
+      setActiveIndex(idx);
+    };
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
+  }, [isDesktop, reviews.length]);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -178,26 +230,28 @@ export default function Reviews() {
               </m.div>
 
               {/* Masaüstü ok butonları */}
-              <div className="hidden md:flex justify-between absolute top-1/2 left-0 right-0 px-2 -translate-y-1/2 pointer-events-none">
-                {showLeftArrow && (
-                  <button
-                    onClick={() => scroll("left")}
-                    className="pointer-events-auto bg-white/90 hover:bg-white w-10 h-10 rounded-full shadow flex items-center justify-center border border-gray-100 transition"
-                    aria-label="Sola kaydır"
-                  >
-                    <ChevronLeft className="text-gray-700" />
-                  </button>
-                )}
-                {showRightArrow && (
-                  <button
-                    onClick={() => scroll("right")}
-                    className="pointer-events-auto bg-white/90 hover:bg-white w-10 h-10 rounded-full shadow flex items-center justify-center border border-gray-100 transition"
-                    aria-label="Sağa kaydır"
-                  >
-                    <ChevronRight className="text-gray-700" />
-                  </button>
-                )}
-              </div>
+              {isDesktop && reviews.length > 3 && (
+                <>
+                  {activeIndex > 0 && (
+                    <button
+                      onClick={() => scrollDesktop("left")}
+                      className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 pointer-events-auto bg-white/90 hover:bg-white w-10 h-10 rounded-full shadow items-center justify-center border border-gray-100 transition z-10"
+                      aria-label="Sola kaydır"
+                    >
+                      <ChevronLeft className="text-gray-700" />
+                    </button>
+                  )}
+                  {!atEnd && (
+                    <button
+                      onClick={() => scrollDesktop("right")}
+                      className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 pointer-events-auto bg-white/90 hover:bg-white w-10 h-10 rounded-full shadow items-center justify-center border border-gray-100 transition z-10"
+                      aria-label="Sağa kaydır"
+                    >
+                      <ChevronRight className="text-gray-700" />
+                    </button>
+                  )}
+                </>
+              )}
 
               {/* CTA */}
               <m.div

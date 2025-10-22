@@ -43,7 +43,7 @@ export default function CookieSettingsModal({
         </div>
 
         {/* Scrollable Content */}
-  <div className="flex-1 overflow-y-auto p-2 sm:p-8 space-y-8">
+        <div className="flex-1 overflow-y-auto p-2 sm:p-8 space-y-8">
           <section>
             <h3 className="font-semibold text-gray-900 text-lg">
               Çerez Ayarları
@@ -169,9 +169,19 @@ function ToggleButton({
       disabled={disabled}
       aria-label="toggle"
       className={`relative inline-flex h-7 w-12 items-center rounded-full transition-all duration-200 ${
-        checked ? "bg-[color:var(--color-primary)]" : "bg-gray-300"
+        checked ? "" : "bg-gray-300"
       } ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-      style={{ minWidth: 48, minHeight: 32 }}
+      style={{
+        minWidth: 48,
+        minHeight: 32,
+        backgroundColor: checked
+          ? typeof window !== "undefined"
+            ? getComputedStyle(document.documentElement).getPropertyValue(
+                "--color-primary"
+              ) || "#0070f3"
+            : "#0070f3"
+          : undefined,
+      }}
     >
       <span
         className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-all duration-200 ${
