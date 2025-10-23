@@ -7,17 +7,18 @@ import type { Metadata } from "next";
 export const siteConfig = {
   siteUrl: "https://eflatunteknoloji.com",
   siteName: "Eflatun Teknoloji Su Arıtma Sistemleri",
+  legalName: "Eflatun Teknoloji Su Arıtma Sistemleri",
   defaultTitle: "Eflatun Teknoloji Su Arıtma Sistemleri | Bolu",
   defaultDescription:
     "Bolu ve çevresinde su arıtma cihazı satışı, montaj ve bakım hizmetleri. Eflatun Teknoloji ile sağlıklı suya ulaşın.",
-  defaultImage: "https://eflatunteknoloji.com/images/settings/logo1.webp",
+  defaultImage: "https://eflatunteknoloji.com/images/settings/logo.webp",
   email: "info@eflatunteknoloji.com",
   phone: "+905367061434",
   // human-friendly phone for display in UI
   phoneDisplay: "+90 536 706 14 34",
   address: "İhsaniye, Çeşmeli Sk. No: 14/B, 14100 Bolu Merkez/Bolu",
   // structured address parts for use in schemas and pages
-  streetAddress: "Karamanlı Yeni Sok. No:16/A",
+  streetAddress: "İhsaniye, Çeşmeli Sk. No: 14/B",
   addressLocality: "Bolu",
   postalCode: "14100",
   addressCountry: "TR",
@@ -31,6 +32,34 @@ export const siteConfig = {
   // Google My Business Place ID used for external Google reviews link
   gmbPlaceId: "ChIJQ1zDirU_nUARCQ9qKvtSg-I",
   vkn: "5240554617",
+  geo: {
+    latitude: 40.737002,
+    longitude: 31.609721,
+  },
+  weekdays: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  weekend: ["Sunday"],
+  openingHours: {
+    weekdays: { open: "09:00", close: "21:00" },
+    sunday: { open: "12:00", close: "21:00" },
+  },
+  areaServed: [
+    "Bolu Merkez",
+    "Gerede",
+    "Mengen",
+    "Mudurnu",
+    "Göynük",
+    "Yeniçağa",
+    "Dörtdivan",
+    "Kıbrıscık",
+    "Seben",
+  ],
 };
 
 /* -------------------------------------------------------------
@@ -138,52 +167,39 @@ export function getLocalBusinessSchema() {
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Karamanlı Yeni Sok. No:16/A",
-      addressLocality: "Bolu",
-      postalCode: "14100",
-      addressCountry: "Türkiye",
+      streetAddress:
+        siteConfig.streetAddress || "İhsaniye, Çeşmeli Sk. No: 14/B",
+      addressLocality: siteConfig.addressLocality || "Bolu",
+      postalCode: siteConfig.postalCode || "14100",
+      addressCountry: siteConfig.addressCountry || "Türkiye",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 40.737002,
-      longitude: 31.609721,
+      latitude: siteConfig.geo?.latitude || 40.737002,
+      longitude: siteConfig.geo?.longitude || 31.609721,
     },
     makesOffer: [
       { "@type": "Offer", itemOffered: "Su Arıtma Cihazı Tedariği" },
       { "@type": "Offer", itemOffered: "Montaj Hizmeti" },
       { "@type": "Offer", itemOffered: "Filtre Değişimi ve Bakım" },
     ],
-    areaServed: [
-      { "@type": "Place", name: "Bolu Merkez" },
-      { "@type": "Place", name: "Gerede" },
-      { "@type": "Place", name: "Mengen" },
-      { "@type": "Place", name: "Mudurnu" },
-      { "@type": "Place", name: "Göynük" },
-      { "@type": "Place", name: "Yeniçağa" },
-      { "@type": "Place", name: "Dörtdivan" },
-      { "@type": "Place", name: "Kıbrıscık" },
-      { "@type": "Place", name: "Seben" },
-    ],
+    areaServed: siteConfig.areaServed.map((place) => ({
+      "@type": "Place",
+      name: place,
+    })),
     sameAs: Object.values(siteConfig.socialLinks),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "09:00",
-        closes: "21:00",
+        dayOfWeek: siteConfig.weekdays,
+        opens: siteConfig.openingHours.weekdays.open,
+        closes: siteConfig.openingHours.weekdays.close,
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Sunday",
-        opens: "12:00",
-        closes: "21:00",
+        dayOfWeek: siteConfig.weekend,
+        opens: siteConfig.openingHours.sunday.open,
+        closes: siteConfig.openingHours.sunday.close,
       },
     ],
   };

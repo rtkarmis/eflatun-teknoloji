@@ -1,11 +1,3 @@
-// Sabit bilgiler
-export const COMPANY_INFO = {
-  name: "Kurumsal CRM",
-  address: "Bolu, Türkiye",
-  phone: "+90 123 456 7890",
-  email: "info@kurumsalcrm.com",
-};
-
 export const COLORS = {
   primary: "#3A86FF", // Mavi
   secondary: "#8FD694", // Yeşil

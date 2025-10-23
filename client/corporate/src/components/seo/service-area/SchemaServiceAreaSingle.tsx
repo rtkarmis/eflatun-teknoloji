@@ -4,10 +4,10 @@ import { siteConfig } from "@/lib/seo";
 import { ServiceArea } from "@/types/service-area";
 
 interface Props {
-    serviceArea:ServiceArea
+  serviceArea: ServiceArea;
 }
 
-export default function SchemaServiceAreaSingle({serviceArea}: Props) {
+export default function SchemaServiceAreaSingle({ serviceArea }: Props) {
   const url = `${siteConfig.siteUrl}/hizmet-bolgeleri/${serviceArea.slug}`;
 
   const schema = {
@@ -22,7 +22,7 @@ export default function SchemaServiceAreaSingle({serviceArea}: Props) {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,
       addressLocality: serviceArea.title,
-      addressRegion: "Bolu",
+      addressRegion: siteConfig.addressLocality || "Bolu",
       addressCountry: "TR",
     },
     geo: serviceArea.coordinates && {

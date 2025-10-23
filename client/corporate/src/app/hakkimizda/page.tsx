@@ -1,4 +1,4 @@
-import { generatePageMetadata } from "@/lib/seo";
+import { generatePageMetadata, siteConfig } from "@/lib/seo";
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import { buildAboutBreadcrumb } from "@/lib/breadcrumbs";
 import Script from "next/script";
@@ -27,12 +27,12 @@ export default function AboutPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "Eflatun Teknoloji Su Arıtma Sistemleri",
-            url: "https://eflatun-teknoloji.com",
-            logo: "https://eflatun-teknoloji.com/images/settings/logo1.webp",
+            name: siteConfig.siteName,
+            url: siteConfig.siteUrl,
+            logo: siteConfig.defaultImage,
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+90 536 706 1434",
+              telephone: siteConfig.phoneDisplay || siteConfig.phone,
               contactType: "customer service",
               areaServed: "TR",
               availableLanguage: "Turkish",
