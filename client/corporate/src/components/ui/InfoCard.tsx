@@ -37,6 +37,8 @@ const InfoCard: React.FC<InfoCardProps> = ({
           loading={loading}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
           quality={70}
+          priority={loading === "eager"}
+          fetchPriority={loading === "eager" ? "high" : "low"}
         />
 
         <h2
