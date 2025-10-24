@@ -4,7 +4,7 @@ import SchemaProductSingle from "@/components/seo/product/SchemaProductSingle";
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import { products } from "@/data/products";
 import { buildProductDetailBreadcrumb } from "@/lib/breadcrumbs";
-import { generatePageMetadata } from "@/lib/seo";
+import { generatePageMetadata, siteConfig } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import ProductDetailContent from "./ProductDetailContent";
 
@@ -41,7 +41,7 @@ export async function generateMetadata({
   return generatePageMetadata({
     title: `${product.name} | ${product.brand} Su Arıtma Cihazı`,
     description: product.shortDesc,
-    slug: canonicalUrl.replace("https://eflatunteknoloji.com/", ""),
+    slug: canonicalUrl.replace(`${siteConfig.siteUrl}/`, ""),
     image: metaImage,
   });
 }

@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/seo";
 import CookiePolicyContent from "./CookiePolicyContent";
 
 export const metadata = {
@@ -5,7 +6,7 @@ export const metadata = {
   description:
     "Eflatun Teknoloji çerez politikası. Web sitemizde kullanılan çerezlerin türleri, amaçları ve yönetim seçenekleri hakkında bilgi alın.",
   alternates: {
-    canonical: "https://eflatunteknoloji.com/cerez-politikasi",
+    canonical: `${siteConfig.siteUrl}/cerez-politikasi`,
   },
 };
 

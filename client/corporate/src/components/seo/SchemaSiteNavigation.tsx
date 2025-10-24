@@ -1,6 +1,7 @@
 "use client";
 
 import { menuLinks } from "@/data/menu";
+import { siteConfig } from "@/lib/seo";
 import { MenuItem } from "@/types/common";
 
 export default function SchemaSiteNavigation() {
@@ -22,7 +23,7 @@ export default function SchemaSiteNavigation() {
         "@type": "SiteNavigationElement",
         position: index + 1,
         name: link.label,
-        url: `https://eflatunteknoloji.com${link.href ?? ""}`,
+        url: `${siteConfig.siteUrl}${link.href ?? ""}`,
       })
     ),
   };

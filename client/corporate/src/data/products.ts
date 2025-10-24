@@ -1,4 +1,5 @@
 import { Product, ProductCategory } from "@/types/product";
+import { siteConfig } from "@/lib/seo";
 
 export const products: Product[] = [
   /* ---------------------------------------------------- 🟦 CİHAZLAR ---------------------------------------------------- */
@@ -100,8 +101,7 @@ Evinde profesyonel su kalitesi isteyen kullanıcılar için en ideal çözümler
     stockStatus: "inStock",
     ratingValue: 4.8,
     reviewCount: 47,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-cihazlari/eco-one-pompali-su-aritma-cihazi",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-cihazlari/eco-one-pompali-su-aritma-cihazi`,
   },
   {
     slug: "roben-pompali-su-aritma-cihazi",
@@ -191,8 +191,7 @@ Su kalitesinden ödün vermek istemeyen kullanıcılar için ideal bir seçimdir
     stockStatus: "inStock",
     ratingValue: 4.9,
     reviewCount: 51,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-cihazlari/roben-pompali-su-aritma-cihazi",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-cihazlari/roben-pompali-su-aritma-cihazi`,
   },
   {
     slug: "eco-one-pompasiz-su-aritma-cihazi",
@@ -292,8 +291,7 @@ Eco One Pompasız Su Arıtma Cihazı, ekonomik bir çözüm arayan ve sessiz ça
     stockStatus: "inStock",
     ratingValue: 4.8,
     reviewCount: 43,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-cihazlari/eco-one-pompasiz-su-aritma-cihazi",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-cihazlari/eco-one-pompasiz-su-aritma-cihazi`,
   },
   {
     slug: "roben-pompasiz-su-aritma-cihazi",
@@ -381,8 +379,7 @@ Sessiz çalışma modu, uzun ömürlü filtreleri ve düşük su israfı sayesin
     stockStatus: "inStock",
     ratingValue: 4.7,
     reviewCount: 39,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-cihazlari/roben-pompasiz-su-aritma-cihazi",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-cihazlari/roben-pompasiz-su-aritma-cihazi`,
   },
   /* ---------------------------------------------------- 🟩 FİLTRELER ---------------------------------------------------- */
   {
@@ -439,8 +436,7 @@ Su arıtma cihazınızın verimliliğini korumak, suyun lezzetini artırmak ve u
     stockStatus: "inStock",
     ratingValue: 4.8,
     reviewCount: 34,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-filtreleri/waterlife-su-aritma-filtre-seti",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-filtreleri/waterlife-su-aritma-filtre-seti`,
   },
   {
     slug: "inline-su-aritma-filtre-seti",
@@ -493,8 +489,7 @@ Uzun filtre ömrü, uygun fiyat ve kolay montaj avantajlarıyla ev kullanıcıla
     stockStatus: "inStock",
     ratingValue: 4.7,
     reviewCount: 22,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-filtreleri/inline-su-aritma-filtre-seti",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-filtreleri/inline-su-aritma-filtre-seti`,
   },
   {
     slug: "housing-su-aritma-filtre-seti",
@@ -544,8 +539,7 @@ Sağlıklı, lezzetli ve güvenli içme suyu için Housing Su Arıtma Filtre Set
     stockStatus: "inStock",
     ratingValue: 4.8,
     reviewCount: 27,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-filtreleri/housing-su-aritma-filtre-seti",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-filtreleri/housing-su-aritma-filtre-seti`,
   },
   {
     slug: "alkali-su-aritma-filtre-seti",
@@ -592,8 +586,7 @@ Alkali filtre seti, klasik filtrelerin ötesinde bir sağlık yatırımıdır.
     stockStatus: "inStock",
     ratingValue: 4.9,
     reviewCount: 33,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-filtreleri/alkali-su-aritma-filtre-seti",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-filtreleri/alkali-su-aritma-filtre-seti`,
   },
 
   {
@@ -644,8 +637,7 @@ Sağlıklı ve lezzetli su için Eftech Su Arıtma Filtre Seti güvenilir bir te
     stockStatus: "inStock",
     ratingValue: 4.8,
     reviewCount: 25,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-filtreleri/eftech-su-aritma-filtre-seti",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-filtreleri/eftech-su-aritma-filtre-seti`,
   },
   /* ---------------------------------------------------- 🧰 EKİPMANLAR ---------------------------------------------------- */
   {
@@ -714,8 +706,7 @@ Sağlıklı, güvenli ve estetik bir mutfak deneyimi için Kare Üç Yollu Su Ar
     stockStatus: "inStock",
     ratingValue: 4.9,
     reviewCount: 36,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-ekipmanlari/kare-uc-yollu-musluk",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-ekipmanlari/kare-uc-yollu-musluk`,
   },
   {
     slug: "oval-uc-yollu-musluk",
@@ -781,8 +772,7 @@ Su arıtma sistemleriyle tam uyumludur ve uzun süreli kullanım için tasarlanm
     stockStatus: "inStock",
     ratingValue: 4.8,
     reviewCount: 28,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-ekipmanlari/oval-uc-yollu-musluk",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-ekipmanlari/oval-uc-yollu-musluk`,
   },
   {
     slug: "su-aritma-pompasi",
@@ -833,8 +823,7 @@ Sessiz çalışma, yüksek performans ve düşük enerji tüketimi arayan kullan
     stockStatus: "inStock",
     ratingValue: 4.9,
     reviewCount: 31,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-ekipmanlari/su-aritma-pompasi",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-ekipmanlari/su-aritma-pompasi`,
   },
   {
     slug: "su-aritma-cihazi-baglanti-aparatlari",
@@ -887,8 +876,7 @@ Kurulumu kolaylaştırır, sızdırma riskini ortadan kaldırır ve cihazın ver
     stockStatus: "inStock",
     ratingValue: 4.7,
     reviewCount: 19,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-ekipmanlari/su-aritma-cihazi-baglanti-aparatlari",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-ekipmanlari/su-aritma-cihazi-baglanti-aparatlari`,
   },
   {
     slug: "luks-su-aritma-muslugu",
@@ -945,8 +933,7 @@ Sade çizgiler, pürüzsüz kullanım ve yüksek dayanıklılıkla su arıtma si
     stockStatus: "inStock",
     ratingValue: 4.9,
     reviewCount: 42,
-    canonical:
-      "https://eflatunteknoloji.com/su-aritma-urunleri/su-aritma-ekipmanlari/luks-su-aritma-muslugu",
+    canonical: `${siteConfig.siteUrl}/su-aritma-urunleri/su-aritma-ekipmanlari/luks-su-aritma-muslugu`,
   },
 ];
 
@@ -972,7 +959,7 @@ export const productCategories: ProductCategory[] = [
       productGroupID: "cihaz",
       brand: "Eflatun Teknoloji",
       category: "WaterPurificationDevice",
-      url: "https://eflatunteknoloji.com/su-aritma-urunleri/cihaz",
+      url: `${siteConfig.siteUrl}/su-aritma-urunleri/cihaz`,
     },
   },
   {
@@ -996,7 +983,7 @@ export const productCategories: ProductCategory[] = [
       productGroupID: "filtre",
       brand: "Eflatun Teknoloji",
       category: "WaterPurificationFilter",
-      url: "https://eflatunteknoloji.com/su-aritma-urunleri/filtre",
+      url: `${siteConfig.siteUrl}/su-aritma-urunleri/filtre`,
     },
   },
   {
@@ -1020,7 +1007,7 @@ export const productCategories: ProductCategory[] = [
       productGroupID: "ekipman",
       brand: "Eflatun Teknoloji",
       category: "WaterPurificationEquipment",
-      url: "https://eflatunteknoloji.com/su-aritma-urunleri/ekipman",
+      url: `${siteConfig.siteUrl}/su-aritma-urunleri/ekipman`,
     },
   },
 ];

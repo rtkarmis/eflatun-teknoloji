@@ -1,4 +1,5 @@
 "use client";
+import { siteConfig } from "@/lib/seo";
 import { Product } from "@/types/product";
 import Head from "next/head";
 interface SchemaProductSingleProps {
@@ -31,7 +32,7 @@ export default function SchemaProductSingle({
       "@type": "Brand",
       name: product.brand,
     },
-    image: imageList.map((img) => `https://eflatunteknoloji.com${img}`),
+    image: imageList.map((img) => `${siteConfig.siteUrl}${img}`),
     sku: product.slug,
     url: canonicalUrl,
     productID: product.slug,
@@ -75,9 +76,9 @@ export default function SchemaProductSingle({
       name: `${product.name} (${v.colorName})`,
       url: v.canonical.startsWith("http")
         ? v.canonical
-        : `https://eflatunteknoloji.com${v.canonical}`,
+        : `${siteConfig.siteUrl}${v.canonical}`,
       color: v.colorName,
-      image: v.imageList.map((img) => `https://eflatunteknoloji.com${img}`),
+      image: v.imageList.map((img) => `${siteConfig.siteUrl}${img}`),
     }));
   }
 

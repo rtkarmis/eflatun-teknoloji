@@ -1,7 +1,7 @@
 // app/su-aritma-urunleri/[kategori]/page.tsx
 import { notFound } from "next/navigation";
 import { productCategories, products } from "@/data/products";
-import { generatePageMetadata } from "@/lib/seo";
+import { generatePageMetadata, siteConfig } from "@/lib/seo";
 import SchemaProductCategory from "@/components/seo/product/SchemaProductCategory";
 import ProductCategoryContent from "./ProductCategoryContent";
 import SchemaProductList from "@/components/seo/product/SchemaProductList";
@@ -27,7 +27,6 @@ export async function generateMetadata({
   });
 }
 
-
 export default async function ProductCategoryPage({
   params,
 }: {
@@ -47,7 +46,7 @@ export default async function ProductCategoryPage({
       <MetaHead
         title={category.name}
         description={category.desc}
-        canonical={`https://eflatunteknoloji.com/su-aritma-urunleri/${category.slug}`}
+        canonical={`${siteConfig.siteUrl}/su-aritma-urunleri/${category.slug}`}
         keywords={category.keywords}
       />
       <SchemaProductCategory category={category} />

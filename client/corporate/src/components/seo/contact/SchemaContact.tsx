@@ -6,7 +6,7 @@ export default function SchemaContact() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://eflatunteknoloji.com/iletisim",
+    "@id": `${siteConfig.siteUrl}/iletisim`,
     name: siteConfig.siteName,
     image: siteConfig.defaultImage,
     url: siteConfig.siteUrl,

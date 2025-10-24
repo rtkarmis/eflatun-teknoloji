@@ -20,10 +20,10 @@ export default function PrivacyPolicyContent() {
           korunmasını en yüksek öncelik olarak görmekteyiz. Bu gizlilik
           politikası,{" "}
           <a
-            href="https://eflatunteknoloji.com"
+            href={`${siteConfig.siteUrl}`}
             className="text-[#007F8C] hover:underline"
           >
-            eflatunteknoloji.com
+            {siteConfig.siteUrl}
           </a>{" "}
           adresli web sitemizi ziyaret eden kullanıcıların verilerinin nasıl
           toplandığını, işlendiğini ve korunduğunu açıklamaktadır.
@@ -169,10 +169,10 @@ export default function PrivacyPolicyContent() {
           değişikliklere bağlı olarak düzenli şekilde güncellenebilir. Güncel
           sürüm her zaman{" "}
           <a
-            href="https://eflatunteknoloji.com/gizlilik-politikasi"
+            href={`${siteConfig.siteUrl}/gizlilik-politikasi`}
             className="text-[#007F8C] hover:underline"
           >
-            eflatunteknoloji.com/gizlilik-politikasi
+            {siteConfig.siteUrl}/gizlilik-politikasi
           </a>{" "}
           adresinde yayınlanır.
         </p>

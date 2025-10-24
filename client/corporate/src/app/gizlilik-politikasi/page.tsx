@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/seo";
 import PrivacyPolicyContent from "./PrivacyPolicyContent";
 
 export const metadata = {
@@ -5,7 +6,7 @@ export const metadata = {
   description:
     "Eflatun Teknoloji gizlilik politikası. Web sitemizde toplanan kişisel verilerin işlenmesi ve korunması hakkında bilgi alın.",
   alternates: {
-    canonical: "https://eflatunteknoloji.com/gizlilik-politikasi",
+    canonical: `${siteConfig.siteUrl}/gizlilik-politikasi`,
   },
 };
 
