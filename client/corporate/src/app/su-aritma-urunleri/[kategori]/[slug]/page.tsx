@@ -45,7 +45,7 @@ export async function generateMetadata({
     image: metaImage,
   });
 }
-
+export const dynamic = "force-static";
 export default async function ProductDetailPage({
   params,
   searchParams,

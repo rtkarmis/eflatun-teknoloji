@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Eflatun Teknoloji web sitesindeki tüm sayfalar, ürünler ve hizmetlerin listesi. Site haritası üzerinden hızlı erişim sağlayın.",
   alternates: { canonical: `${siteConfig.siteUrl}/site-haritasi` },
 };
-
+export const dynamic = "force-static";
 export default function SitemapPage() {
   return <SiteMapContent />;
 }

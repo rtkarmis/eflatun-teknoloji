@@ -26,7 +26,7 @@ export async function generateMetadata({
     slug: `su-aritma-urunleri/${category.slug}`,
   });
 }
-
+export const dynamic = "force-static";
 export default async function ProductCategoryPage({
   params,
 }: {

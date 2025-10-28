@@ -9,7 +9,7 @@ export const metadata = {
     canonical: `${siteConfig.siteUrl}/gizlilik-politikasi`,
   },
 };
-
+export const dynamic = "force-static";
 export default function PrivacyPolicyPage() {
   return <PrivacyPolicyContent />;
 }

@@ -9,6 +9,7 @@ export const metadata = generatePageMetadata({
     "Eflatun Teknoloji Su Arıtma Sistemleri — Bolu ve çevresinde su arıtma satışı, montajı ve bakımı için bize ulaşın. Telefon, e-posta ve adres bilgileri burada.",
   slug: "iletisim",
 });
+export const dynamic = "force-static";
 export default function ContactPage() {
   return (
     <>

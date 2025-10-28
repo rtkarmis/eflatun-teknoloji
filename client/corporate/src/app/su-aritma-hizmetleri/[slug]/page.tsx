@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     image: service.image,
   });
 }
-
+export const dynamic = "force-static";
 export default async function ServiceDetailPage({
   params,
 }: {

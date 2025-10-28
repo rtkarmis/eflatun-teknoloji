@@ -11,7 +11,7 @@ export const metadata = generatePageMetadata({
     "Su arıtma cihazı, filtre ve ekipman kategorilerimizle Eflatun Teknoloji farkını keşfedin. Ev tipi ve endüstriyel sistemler için en uygun çözümler.",
   slug: "su-aritma-urunleri",
 });
-
+export const dynamic = "force-static";
 export default function ProductsPage() {
   return (
     <>

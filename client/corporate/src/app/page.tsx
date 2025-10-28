@@ -8,6 +8,7 @@ export const generateMetadata = async () =>
       "Eflatun Teknoloji – Bolu ve çevresinde su arıtma cihazı satışı, montaj ve bakım hizmetleri.",
     slug: "",
   });
+export const revalidate = 86400; // 24 hours
 export default function HomePage() {
   return (
     <div className="w-full bg-white text-gray-800">

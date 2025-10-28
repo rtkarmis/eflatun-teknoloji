@@ -9,7 +9,7 @@ export const metadata = {
     canonical: `${siteConfig.siteUrl}/cerez-politikasi`,
   },
 };
-
+export const dynamic = "force-static";
 export default function CookiePolicyPage() {
   return <CookiePolicyContent />;
 }

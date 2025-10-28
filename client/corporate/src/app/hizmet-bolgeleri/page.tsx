@@ -10,7 +10,7 @@ export const metadata = generatePageMetadata({
     "Eflatun Teknoloji olarak Bolu merkez ve tüm ilçelerinde su arıtma cihazı satışı, montaj ve bakım hizmetleri sunuyoruz.",
   slug: "hizmet-yerleri",
 });
-
+export const dynamic = "force-static";
 export default function ServiceAreasPage() {
   return (
     <>
