@@ -9,6 +9,8 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import ProductDetailContent from "./ProductDetailContent";
 
+export const revalidate = 86400; // 24 hours
+
 export async function generateMetadata({
   params,
 }: {
