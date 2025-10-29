@@ -17,25 +17,15 @@ import ProductGallery from "./ProductGallery";
 export default function ProductDetailContent({
   product,
   params,
-  searchParams,
 }: {
   product: Product;
   params: { kategori: string };
-  searchParams?: { color?: string };
 }) {
   const router = useRouter();
   const sp = useSearchParams();
 
-  // URL'den color parametresini oku
-  const urlColorParam =
-    typeof window !== "undefined"
-      ? new URLSearchParams(window.location.search).get("color")
-      : null;
-
   const currentColor =
-    searchParams?.color ||
     sp?.get("color") ||
-    urlColorParam ||
     product.colorVariants.find((v) => v.isCover)?.colorName ||
     product.colorVariants[0]?.colorName;
 
@@ -50,47 +40,18 @@ export default function ProductDetailContent({
 
   // Color parametresi yoksa cover varyantına yönlendir
   useEffect(() => {
-    // URL'den color parametresini oku
-    const urlParams = new URLSearchParams(window.location.search);
-    const colorFromUrl = urlParams.get("color");
-
-    // Eğer URL'de color parametresi varsa ve geçerli bir renk ise
-    if (colorFromUrl) {
-      const foundVariant = product.colorVariants.find(
-        (v) => v.colorName.toLowerCase() === colorFromUrl.toLowerCase()
-      );
-
-      // Geçerli bir renk bulunursa o rengi seç
-      if (foundVariant && currentColor !== foundVariant.colorName) {
-        // State'i güncelle ama URL'i değiştirme (çünkü zaten doğru)
-        return;
-      }
-
-      // Geçersiz renk ise cover'a yönlendir
-      if (!foundVariant) {
-        const cover =
-          product.colorVariants.find((v) => v.isCover) ||
-          product.colorVariants[0];
-        if (cover) {
-          const newUrl = new URL(window.location.href);
-          newUrl.searchParams.set("color", cover.colorName);
-          router.replace(newUrl.pathname + newUrl.search);
-        }
-      }
-    } else {
-      // Color parametresi yoksa ve çoklu varyant varsa cover'a yönlendir
-      if (product.colorVariants.length > 1) {
-        const cover =
-          product.colorVariants.find((v) => v.isCover) ||
-          product.colorVariants[0];
-        if (cover) {
-          const newUrl = new URL(window.location.href);
-          newUrl.searchParams.set("color", cover.colorName);
-          router.replace(newUrl.pathname + newUrl.search);
-        }
+    // Çoklu varyant varsa ve color parametresi yoksa cover'a yönlendir
+    if (product.colorVariants.length > 1 && !sp?.get("color")) {
+      const cover =
+        product.colorVariants.find((v) => v.isCover) ||
+        product.colorVariants[0];
+      if (cover) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("color", cover.colorName);
+        router.replace(url.pathname + url.search);
       }
     }
-  }, [product, router, currentColor]);
+  }, [product, sp, router]);
 
   function onSelectColor(colorName: string) {
     const url = new URL(window.location.href);
