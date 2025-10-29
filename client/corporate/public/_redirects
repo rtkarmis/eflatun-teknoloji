@@ -1,5 +1,0 @@
-# Netlify redirects for client-side routing
-/*    /index.html   200
-
-# Product pages with color parameters should load the base product page
-/su-aritma-urunleri/*/*?color=*   /su-aritma-urunleri/:splat   200
