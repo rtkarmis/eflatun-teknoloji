@@ -10,7 +10,11 @@ interface Params {
   slug: string;
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   const awaitedParams = await params;
   const serviceArea = serviceAreas.find((s) => s.slug === awaitedParams.slug);
   if (!serviceArea) return notFound();
@@ -26,7 +30,7 @@ export const dynamic = "force-static";
 export default async function ServiceAreaDetailPage({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
   const awaitedParams = await params;
   const serviceArea = serviceAreas.find((s) => s.slug === awaitedParams.slug);

@@ -12,8 +12,8 @@ export async function generateMetadata({
   params,
   searchParams,
 }: {
-  params: { kategori: string; slug: string };
-  searchParams?: { color?: string | string[] };
+  params: Promise<{ kategori: string; slug: string }>;
+  searchParams?: Promise<{ color?: string | string[] }>;
 }) {
   const { slug } = await params;
   const query = await searchParams;
@@ -21,7 +21,7 @@ export async function generateMetadata({
   const product = products.find((p) => p.slug === slug);
   if (!product) return notFound();
 
-  // color param’ı varsa uygun varyantı bul
+  // color param'ı varsa uygun varyantı bul
   const colorParam = Array.isArray(query?.color)
     ? query.color[0]
     : query?.color;
@@ -50,8 +50,8 @@ export default async function ProductDetailPage({
   params,
   searchParams,
 }: {
-  params: { kategori: string; slug: string };
-  searchParams?: { color?: string | string[] };
+  params: Promise<{ kategori: string; slug: string }>;
+  searchParams?: Promise<{ color?: string | string[] }>;
 }) {
   const routeParams = (await params) as { kategori: string; slug: string };
   const query = (await searchParams) as

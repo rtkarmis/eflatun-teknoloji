@@ -12,7 +12,7 @@ import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 export async function generateMetadata({
   params,
 }: {
-  params: { kategori: string };
+  params: Promise<{ kategori: string }>;
 }) {
   const awaitedParams = await params;
   const category = productCategories.find(
@@ -30,7 +30,7 @@ export const dynamic = "force-static";
 export default async function ProductCategoryPage({
   params,
 }: {
-  params: { kategori: string };
+  params: Promise<{ kategori: string }>;
 }) {
   const awaitedParams = await params;
   const category = productCategories.find(
