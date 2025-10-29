@@ -48,10 +48,17 @@ export async function generateMetadata({
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
-  return products.map((product) => ({
-    kategori: product.category,
-    slug: product.slug,
-  }));
+  const params = [];
+
+  // Her ürün için temel sayfa
+  for (const product of products) {
+    params.push({
+      kategori: product.category,
+      slug: product.slug,
+    });
+  }
+
+  return params;
 }
 
 export default async function ProductDetailPage({
