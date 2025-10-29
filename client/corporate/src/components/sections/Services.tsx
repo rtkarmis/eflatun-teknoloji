@@ -36,8 +36,9 @@ export default function Services() {
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
-                  quality={80}
+                  quality={95}
                   loading={"lazy"}
+                  priority={false}
                 />
               </div>
 
@@ -77,8 +78,9 @@ export default function Services() {
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 33vw, 400px"
-                  quality={80}
+                  quality={95}
                   loading={"lazy"}
+                  priority={false}
                 />
               </div>
 

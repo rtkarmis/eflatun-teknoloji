@@ -36,7 +36,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
           className="w-full object-cover rounded-xl mb-4"
           loading={loading}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
-          quality={70}
+          quality={95}
           priority={loading === "eager"}
           fetchPriority={loading === "eager" ? "high" : "low"}
         />

@@ -58,8 +58,8 @@ export default function MobileHeader() {
   return (
     <div className="flex items-center justify-between w-full h-16 relative">
       {/* 🔹 Logo */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <Logo />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <Logo width={120} height={67} />
       </div>
 
       {/* 🔹 Menü Butonu */}

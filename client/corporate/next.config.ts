@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
+    unoptimized: true, // Static export için gerekli
     formats: ["image/avif", "image/webp"], // optimize edilmiş görseller
     remotePatterns: [
       {

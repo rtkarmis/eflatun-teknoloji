@@ -26,7 +26,7 @@ export default function Logo({
   return (
     <Link
       href={href}
-      className="inline-flex items-center justify-center select-none"
+      className="inline-flex items-center justify-center select-none shrink-0"
       aria-label={siteConfig.siteName}
     >
       <Image
@@ -36,7 +36,11 @@ export default function Logo({
         height={height}
         priority={priority}
         decoding="async"
-        className={`object-contain w-auto h-auto max-h-[${height}px]`}
+        className="object-contain w-auto h-auto"
+        style={{
+          maxHeight: `${height}px`,
+          maxWidth: `${width}px`,
+        }}
         sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, (max-width: 1024px) 180px, 200px"
       />
     </Link>

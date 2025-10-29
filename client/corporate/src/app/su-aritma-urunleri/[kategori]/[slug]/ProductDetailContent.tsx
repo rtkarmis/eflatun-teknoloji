@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/seo";
 import { Product } from "@/types/product";
 import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import ProductGallery from "./ProductGallery";
 
@@ -40,6 +40,22 @@ export default function ProductDetailContent({
       product.colorVariants[0]
     );
   }, [product, currentColor]);
+
+  // Color parametresi yoksa cover varyantına yönlendir
+  useEffect(() => {
+    if (
+      product.colorVariants.length > 1 &&
+      !searchParams?.color &&
+      !sp?.get("color")
+    ) {
+      const cover = product.colorVariants.find((v) => v.isCover);
+      if (cover) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("color", cover.colorName);
+        router.replace(url.pathname + url.search);
+      }
+    }
+  }, [product, searchParams, sp, router]);
 
   function onSelectColor(colorName: string) {
     const url = new URL(window.location.href);
