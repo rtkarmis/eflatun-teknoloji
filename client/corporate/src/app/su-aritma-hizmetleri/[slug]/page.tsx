@@ -27,6 +27,13 @@ export async function generateMetadata({
   });
 }
 export const dynamic = "force-static";
+
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
 export default async function ServiceDetailPage({
   params,
 }: {

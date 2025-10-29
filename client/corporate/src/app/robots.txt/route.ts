@@ -1,5 +1,7 @@
 import { siteConfig } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const content = `
 User-agent: *

@@ -46,6 +46,14 @@ export async function generateMetadata({
   });
 }
 export const dynamic = "force-static";
+
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    kategori: product.category,
+    slug: product.slug,
+  }));
+}
+
 export default async function ProductDetailPage({
   params,
   searchParams,

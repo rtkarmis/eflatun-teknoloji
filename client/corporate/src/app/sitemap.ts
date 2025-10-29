@@ -6,6 +6,8 @@ import { productCategories, products } from "@/data/products";
 import { serviceAreas } from "@/data/service-areas";
 import { services } from "@/data/services";
 
+export const dynamic = "force-static";
+
 type ChangeFreq =
   | "monthly"
   | "always"

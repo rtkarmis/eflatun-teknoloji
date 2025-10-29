@@ -27,6 +27,13 @@ export async function generateMetadata({
   });
 }
 export const dynamic = "force-static";
+
+export async function generateStaticParams() {
+  return serviceAreas.map((area) => ({
+    slug: area.slug,
+  }));
+}
+
 export default async function ServiceAreaDetailPage({
   params,
 }: {
